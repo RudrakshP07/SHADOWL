@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Recon Report – tesla.com</title>
+<style>
+* {margin:0;padding:0;box-sizing:border-box}
+body {font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+       background:#0D1117;color:#E6EDF3;line-height:1.6}
+a {color:#58A6FF;text-decoration:none} a:hover {text-decoration:underline}
+.header {background:linear-gradient(135deg,#0D1117 0%,#161B22 100%);
+          border-bottom:2px solid #58A6FF;padding:56px 40px;text-align:center}
+.header h1 {font-size:2.6em;font-weight:700;color:#E6EDF3}
+.header h1 span {color:#58A6FF}
+.header .domain {font-size:1.5em;color:#58A6FF;margin:10px 0;font-weight:300}
+.header .ts {color:#8B949E;font-size:.88em;margin-top:6px}
+.container {max-width:1380px;margin:0 auto;padding:36px 20px}
+.tool-section {background:#161B22;border:1px solid #30363D;
+                border-radius:12px;margin-bottom:26px;overflow:hidden;
+                transition:box-shadow .25s}
+.tool-section:hover {box-shadow:0 0 0 2px #1F6FEB}
+.tool-header {background:linear-gradient(90deg,#1C2230 0%,#0D1117 100%);
+               border-bottom:1px solid #30363D;padding:18px 26px;
+               display:flex;justify-content:space-between;align-items:center;
+               font-size:1.18em;font-weight:600;color:#58A6FF}
+.status-badge {font-size:.56em;padding:4px 13px;border-radius:20px;
+                font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.status-completed {background:#163221;color:#3FB950;border:1px solid #3FB950}
+.status-error     {background:#2D1A1A;color:#F85149;border:1px solid #F85149}
+.tool-content {padding:26px}
+.data-table {width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+.data-table th {background:#1C2230;color:#58A6FF;padding:11px 15px;
+                 text-align:left;font-weight:600;border-bottom:2px solid #30363D}
+.data-table td {padding:10px 15px;border-bottom:1px solid #30363D;
+                 color:#E6EDF3;word-break:break-all}
+.data-table tr:hover td {background:#1C2230}
+.output-box {background:#0A0E14;color:#A8D8A8;padding:18px;border-radius:8px;
+              font-family:'Cascadia Code','Fira Code','Courier New',monospace;
+              font-size:.84em;overflow-x:auto;white-space:pre-wrap;
+              word-wrap:break-word;margin:14px 0;border:1px solid #30363D}
+.stats-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+              gap:14px;margin:14px 0}
+.stat-card {background:linear-gradient(135deg,#1C2230 0%,#161B22 100%);
+             border:1px solid #1F6FEB;border-radius:10px;padding:20px;text-align:center}
+.stat-card .number {font-size:2em;font-weight:700;color:#58A6FF;display:block;margin-bottom:5px}
+.stat-card .label  {font-size:.82em;color:#8B949E}
+.subdomain-list {columns:3;column-gap:14px;margin:14px 0}
+.subdomain-item {background:#1C2230;padding:5px 11px;margin:4px 0;border-radius:5px;
+                  break-inside:avoid;font-family:'Courier New',monospace;font-size:.82em;
+                  color:#E6EDF3;border-left:3px solid #1F6FEB}
+.tech-pill {display:inline-block;background:#1F6FEB;color:#E6EDF3;
+             padding:2px 9px;border-radius:20px;font-size:.8em;margin:2px 2px 2px 0}
+.recon-iframe {width:100%;height:680px;border:1px solid #30363D;
+                border-radius:8px;margin:14px 0;background:#0D1117}
+details {margin-bottom:9px}
+summary {cursor:pointer;padding:9px 13px;background:#1C2230;
+          border:1px solid #30363D;border-radius:6px;color:#58A6FF;
+          font-weight:600;user-select:none}
+summary:hover {background:#0D1117}
+.footer {background:#161B22;border-top:1px solid #30363D;
+          text-align:center;padding:34px;margin-top:48px;color:#8B949E}
+.dl-btn {display:inline-block;background:#1F6FEB;color:#E6EDF3;
+          padding:10px 26px;border-radius:8px;text-decoration:none;margin:7px;
+          font-weight:600;transition:background .2s}
+.dl-btn:hover {background:#58A6FF;color:#000;text-decoration:none}
+@media print {body{background:#fff;color:#000}.tool-section{box-shadow:none;page-break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>🔍 <span>Passive Recon</span> Report</h1>
+  <div class="domain">tesla.com</div>
+  <div class="ts">Generated: May 09, 2026 at 00:21:55</div>
+</div>
+<div class="container">
+
+
+<div class="tool-section">
+  <div class="tool-header">
+    <span>Dns</span>
+    <span class="status-badge status-completed">completed</span>
+  </div>
+  <div class="tool-content">
+
+
+<div class="stats-grid">
+  <div class="stat-card"><span class="number">10</span><span class="label">A Records</span></div>
+  <div class="stat-card"><span class="number">1</span><span class="label">MX Records</span></div>
+  <div class="stat-card"><span class="number">7</span><span class="label">NS Records</span></div>
+  <div class="stat-card"><span class="number">33</span><span class="label">TXT Records</span></div>
+</div>
+<table class="data-table">
+  <tr><th>Type</th><th>Values</th></tr>
+  <tr><td>A</td><td>2.18.51.207<br>2.18.48.207<br>2.18.54.207<br>2.18.53.207<br>2.18.52.207<br>2.18.49.207<br>2.18.55.207<br>2.18.50.207<br>23.7.244.207<br>23.40.100.207</td></tr>
+  <tr><td>AAAA</td><td>—</td></tr>
+  <tr><td>MX</td><td>P10: tesla-com.mail.protection.outlook.com</td></tr>
+  <tr><td>NS</td><td>a1-12.akam.net<br>edns69.ultradns.com<br>a12-64.akam.net<br>a10-67.akam.net<br>a28-65.akam.net<br>a9-67.akam.net<br>a7-66.akam.net</td></tr>
+  <tr><td>CNAME</td><td>—</td></tr>
+  <tr><td>TXT</td><td>onetrust-domain-verification=480735b10e124e23916192d7e4321902<br>MS=ms22358213<br>logmein-verification-code=JFAnsPovogeJ4IeW5MXCU3r0C<br>_f32sd18rpksw3zh1hgbhaulpv016hoh<br>jamf-site-verification=u4x3LuqSfpoLn5nJ0zMd5g<br>_w19nckjurfa4aldim48vtbrxsq1phnv<br>adobe-sign-verification=efb2da198047b7a154bd604d2721038b<br>atlassian-domain-verification=U31RjXDO5NBJROoOVpVEsKJ7daGpXuXPDF8HeqlmvXUKOtTao652TOMtejHrohKB<br>_i88zzpi9e3jr0xglot953efk0ui36y5<br>google-site-verification=Xg2DEUg2oCz1q9RMx8gh2htHK16_GG9cZXY_eyeSf6w<br>teamviewer-sso-verification=2fc989f75b19494fab5eb0e2c22dd625<br>traction-guest=b4f7ad59-bf17-4b3c-8b36-9c2d28f1de32<br>_quuerjb9mywulmdygnzgnt9awyzm15c<br>bugcrowd-verification=40bd5dd89a6e4073ca9bc76feac3a47b<br>ms-domain-verification=e335cec9-0ff5-4a54-b8bc-8966a8d146db<br>SFMC-qkAv7SvlQaslp7NEALX8t68s_AZWOQB6ThKQS5l5<br>cloudflare_dashboard_sso=5c0b681b716d2de0666f5a564a4d9c0d<br>logmein-domain-confirmation=9zxwVn2buGWrLtU24J88<br>T0E0S29854<br>apple-domain-verification=CHZ8RLPKu4dlRxlaNa_nR9oA2MjZ1n2fiE9s0QlbRO8<br>zapier-domain-verification-challenge=64e810e8-0fe1-4de0-b104-229592811c5b<br>onetrust-domain-verification=79a1328740f44bc48dd97ab52c0c3377<br>adobe-idp-site-verification=321c026a-3a8c-4206-a1fa-391a59585c54<br>v=spf1 ip4:54.240.84.225/32 ip4:54.240.84.226/31 ip4:54.240.84.228/30 ip4:54.240.84.232/29 ip4:54.240.84.240/29 ip4:54.240.84.248/30 ip4:54.240.84.252/32 ip4:44.239.249.139 ip4:52.24.70.112 ip4:34.223.204.78 ip4:213.244.145.203 ip4:213.244.145.219 ip4:213" ".244.145.204 ip4:213.244.145.220 ip4:8.47.24.203 ip4:8.47.24.219 ip4:8.47.24.204 ip4:8.47.24.220 ip4:8.45.124.203 ip4:8.45.124.219 ip4:8.45.124.204 ip4:8.45.124.220 ip4:8.21.14.203 ip4:8.21.14.219 ip4:8.21.14.204 ip4:8.21.14.220 ip4:8.21.14.194 ip4:8.21.1" "4.211 ip4:212.49.145.0/24 ip4:91.103.52.0/22 ip4:168.245.123.10 ip4:216.81.144.165 ip4:149.72.247.52 ip4:149.72.134.64 ip4:149.72.152.236 ip4:149.72.163.58 ip4:149.72.172.170 ip4:167.89.90.62 ip4:158.228.129.79 ip4:216.81.144.165 ip4:117.50.14.178 ip4:117" ".50.35.199 ip4:54.240.42.110 ip4:54.240.42.111 ip4:199.71.239.178 ip4:67.216.183.10 ip4:8.43.178.222 ip4:64.95.144.196 ip4:199.71.239.52 include:u13494342.wl093.sendgrid.net include:spf.protection.outlook.com include:mail.zendesk.com include:_spfsn.teslam" "otors.com include:_spf.qualtrics.com include:_spf.ultipro.com include:_spf.psm.knowbe4.com include:spf1.sendcloud.org include:spf2.sendcloud.org -all<br>google-site-verification=Y7lbse5bSatjXaqSBOWXjsit4mOp9cQzfLDpnQUSZlg<br>domain-verification=0f075f7f33bd0e577c0a56c5bb071f9eedadba45f32da11304913c6afd4b99c7<br>ms-domain-verification=820e4be7-563e-4f52-b73a-5c9ecdd2fda4<br>atlassian-domain-verification=FuJL8qfcWp7BKpnaomRV1Vmay09Vt0rdhikq9Gh/CwPYjsvTIwkrhaVAX1idqUMl<br>55zNJIDU0xk94IfGJtL+Hh+wje5JzOS6GY+ntggZF908AUsx0LBKgr+Nln3CgZEUifxSuN09M05jYpdbd6+cpw==<br>apple-domain-verification=C9J7eOtEbm7Dqr88<br>cursor-domain-verification-6kgt2s=sxbxrRmk2tNjItWtmh1swmBM0<br>dell-technologies-domain-verification=tesla.com_c363f56d-9650-430a-82d3-04ac2257c64a_1756487968<br>docker-verification=74d1ec4e-a7a6-48a7-9568-9bd0faac833f</td></tr>
+</table>
+
+<a class="dl-btn" href="tesla.com\tesla.com_dns.json">⬇ DNS JSON</a>
+<iframe class="recon-iframe" src="tesla.com\tesla.com_dns_report.html"></iframe>
+  </div>
+</div>
+
+<div class="tool-section">
+  <div class="tool-header">
+    <span>Whois</span>
+    <span class="status-badge status-completed">completed</span>
+  </div>
+  <div class="tool-content">
+
+
+<table class="data-table">
+  <tr><th>Field</th><th>Value</th></tr>
+  <tr><td>Domain</td><td>TESLA.COM</td></tr>
+  <tr><td>Registrar</td><td>whois.markmonitor.com</td></tr>
+  <tr><td>Created</td><td>1992-11-04T05:00:00Z</td></tr>
+  <tr><td>Expires</td><td>2026-11-03T05:00:00Z</td></tr>
+  <tr><td>Updated</td><td>2024-10-02T10:15:20Z</td></tr>
+  <tr><td>DNSSEC</td><td>unsigned</td></tr>
+</table>
+<h3 style="margin:14px 0 8px">🖥 Name Servers</h3>
+<div class="output-box">a1-12.akam.net&#10;a10-67.akam.net&#10;a12-64.akam.net&#10;a28-65.akam.net&#10;a7-66.akam.net&#10;a9-67.akam.net&#10;edns69.ultradns.biz&#10;edns69.ultradns.com&#10;edns69.ultradns.net&#10;edns69.ultradns.org</div>
+<details>
+  <summary>Raw WHOIS</summary>
+  <div class="output-box" style="margin-top:8px">   Domain Name: TESLA.COM
+   Registry Domain ID: 187902_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.markmonitor.com
+   Registrar URL: http://www.markmonitor.com
+   Updated Date: 2024-10-02T10:15:20Z
+   Creation Date: 1992-11-04T05:00:00Z
+   Registry Expiry Date: 2026-11-03T05:00:00Z
+   Registrar: MarkMonitor Inc.
+   Registrar IANA ID: 292
+   Registrar Abuse Contact Email: abusecomplaints@markmonitor.com
+   Registrar Abuse Contact Phone: +1.2086851750
+   Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+   Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+   Domain Status: serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited
+   Domain Status: serverTransferProhibited https://icann.org/epp#serverTransferProhibited
+   Domain Status: serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited
+   Name Server: A1-12.AKAM.NET
+   Name Server: A10-67.AKAM.NET
+   Name Server: A12-64.AKAM.NET
+   Name Server: A28-65.AKAM.NET
+   Name Server: A7-66.AKAM.NET
+   Name Server: A9-67.AKAM.NET
+   Name Server: EDNS69.ULTRADNS.BIZ
+   Name Server: EDNS69.ULTRADNS.COM
+   Name Server: EDNS69.ULTRADNS.NET
+   Name Server: EDNS69.ULTRADNS.ORG
+   DNSSEC: unsigned
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+&gt;&gt;&gt; Last update of whois database: 2026-05-08T18:34:07Z &lt;&lt;&lt;
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+NOTICE: The expiration date displayed in this record is the date the
+registrar&#x27;s sponsorship of the domain name registration in the registry is
+currently set to expire. This date does not necessarily reflect the expiration
+date of the domain name registrant&#x27;s agreement with the sponsoring
+registrar.  Users may consult the sponsoring registrar&#x27;s Whois database to
+view the registrar&#x27;s reported date of expiration for this registration.
+
+TERMS OF USE: You are not authorized to access or query our Whois
+database through the use of electronic processes that are high-volume and
+automated except as reasonably necessary to register domain names or
+modify existing registrations; the Data in VeriSign Global Registry
+Services&#x27; (&quot;VeriSign&quot;) Whois database is provided by VeriSign for
+information purposes only, and to assist persons in obtaining information
+about or related to a domain name registration record. VeriSign does not
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+by the following terms of use: You agree that you may use this Data only
+for lawful purposes and that under no circumstances will you use this Data
+to: (1) allow, enable, or otherwise support the transmission of mass
+unsolicited, commercial advertising or solicitations via e-mail, telephone,
+or facsimile; or (2) enable high volume, automated, electronic processes
+that apply to VeriSign (or its computer systems). The compilation,
+repackaging, dissemination or other use of this Data is expressly
+prohibited without the prior written consent of VeriSign. You agree not to
+use electronic processes that are automated and high-volume to access or
+query the Whois database except as reasonably necessary to register
+domain names or modify existing registrations. VeriSign reserves the right
+to restrict your access to the Whois database in its sole discretion to ensure
+operational stability.  VeriSign may restrict or terminate your access to the
+Whois database for failure to abide by these terms of use. VeriSign
+reserves the right to modify these terms at any time.
+
+The Registry database contains ONLY .COM, .NET, .EDU domains and
+Registrars.
+</div>
+</details>
+
+  </div>
+</div>
+
+<div class="tool-section">
+  <div class="tool-header">
+    <span>Certificates</span>
+    <span class="status-badge status-completed">completed</span>
+  </div>
+  <div class="tool-content">
+
+
+<div class="stats-grid">
+  <div class="stat-card"><span class="number">501</span><span class="label">Subdomains</span></div>
+  <div class="stat-card"><span class="number">340</span><span class="label">Certificates</span></div>
+</div>
+<h3 style="margin:14px 0 8px">🌐 Discovered Subdomains</h3>
+<div class="subdomain-list">
+
+<div class="subdomain-item">• acme-sentry-4.eng.use1.vn.cloud.tesla.com</div>
+<div class="subdomain-item">• acme-sentry-4a.eng.use1.vn.cloud.tesla.com</div>
+<div class="subdomain-item">• acs2-poc.voice.tesla.com</div>
+<div class="subdomain-item">• ai-api-stg.tesla.com</div>
+<div class="subdomain-item">• ai-api-uat.tesla.com</div>
+<div class="subdomain-item">• ai-api.tesla.com</div>
+<div class="subdomain-item">• akamai-apigateway-einvoicing-stg.tesla.com</div>
+<div class="subdomain-item">• akamai-apigateway-vehicleextinfogw-prdsvc-st.tesla.com</div>
+<div class="subdomain-item">• akamai-apigateway-vehicleextinfogw-stgsvc-st.tesla.com</div>
+<div class="subdomain-item">• ams13-gpgw1.tesla.com</div>
+<div class="subdomain-item">• apac-cppm.tesla.com</div>
+<div class="subdomain-item">• apac.logs.tesla.com</div>
+<div class="subdomain-item">• apacvpn.tesla.com</div>
+<div class="subdomain-item">• apacvpn1.tesla.com</div>
+<div class="subdomain-item">• apacvpn2.tesla.com</div>
+<div class="subdomain-item">• apf-api.eng.vn.cloud.tesla.com</div>
+<div class="subdomain-item">• apf-api.prd.vn.cloud.tesla.com</div>
+<div class="subdomain-item">• api-account-master.tesla.com</div>
+<div class="subdomain-item">• api-firebolt.tesla.com</div>
+<div class="subdomain-item">• api-toolbox.tesla.com</div>
+<div class="subdomain-item">• api.kronos.tesla.com</div>
+<div class="subdomain-item">• app.tesla.com</div>
+<div class="subdomain-item">• appplayer.tesla.com</div>
+<div class="subdomain-item">• assets.extgithub.tesla.com</div>
+<div class="subdomain-item">• assets.github-ap.tesla.com</div>
+<div class="subdomain-item">• assets.github-fw.tesla.com</div>
+<div class="subdomain-item">• assets.github-it.tesla.com</div>
+<div class="subdomain-item">• assets.github.tesla.com</div>
+<div class="subdomain-item">• auth-stage.tesla.com</div>
+<div class="subdomain-item">• auth.eng.euw1.vn.cloud.tesla.com</div>
+<div class="subdomain-item">• auth.eng.usw.vn.cloud.tesla.com</div>
+<div class="subdomain-item">• auth.prd.euw1.vn.cloud.tesla.com</div>
+<div class="subdomain-item">• auth.prd.usw.vn.cloud.tesla.com</div>
+<div class="subdomain-item">• auth.tesla.com</div>
+<div class="subdomain-item">• autobidder-eng.powerhub.energy.tesla.com</div>
+<div class="subdomain-item">• autobidder-preprd.powerhub.energy.tesla.com</div>
+<div class="subdomain-item">• autobidder.powerhub.energy.tesla.com</div>
+<div class="subdomain-item">• autodiscover.tesla.com</div>
+<div class="subdomain-item">• avatars.extgithub.tesla.com</div>
+<div class="subdomain-item">• avatars.github-ap.tesla.com</div>
+<div class="subdomain-item">• avatars.github-fw.tesla.com</div>
+<div class="subdomain-item">• avatars.github-it.tesla.com</div>
+<div class="subdomain-item">• avatars.github.tesla.com</div>
+<div class="subdomain-item">• awsbtest.tesla.com</div>
+<div class="subdomain-item">• bctpay.tesla.com</div>
+<div class="subdomain-item">• bettertime-stage.tesla.com</div>
+<div class="subdomain-item">• bettertime.tesla.com</div>
+<div class="subdomain-item">• billing.tesla.com</div>
+<div class="subdomain-item">• bom01-gpgw1.tesla.com</div>
+<div class="subdomain-item">• bottlerocket.tesla.com</div>
+<div class="subdomain-item">• c382p434p572c.tesla.com</div>
+<div class="subdomain-item">• ca.tesla.com</div>
+<div class="subdomain-item">• chat-staging.bottlerocket.tesla.com</div>
+<div class="subdomain-item">• ciscoguest.tesla.com</div>
+<div class="subdomain-item">• citiapiencpoc.tesla.com</div>
+<div class="subdomain-item">• citiapiencpocv2.tesla.com</div>
+<div class="subdomain-item">• citiapiencpocv3.tesla.com</div>
+<div class="subdomain-item">• citiapiencprodv4.tesla.com</div>
+<div class="subdomain-item">• citiapiencprodv5.tesla.com</div>
+<div class="subdomain-item">• citiapiencsandboxv4.tesla.com</div>
+<div class="subdomain-item">• citiapipgpprodv6.tesla.com</div>
+<div class="subdomain-item">• citiapipgpprodv7.tesla.com</div>
+<div class="subdomain-item">• citiapisshprodv6.tesla.com</div>
+<div class="subdomain-item">• citiapisslpoc.tesla.com</div>
+<div class="subdomain-item">• citiapisslpocv2.tesla.com</div>
+<div class="subdomain-item">• citiapisslpocv3.tesla.com</div>
+<div class="subdomain-item">• citiapisslprodv4.tesla.com</div>
+<div class="subdomain-item">• citiapisslprodv5.tesla.com</div>
+<div class="subdomain-item">• citiapisslprodv7.tesla.com</div>
+<div class="subdomain-item">• citiapisslsandboxv4.tesla.com</div>
+<div class="subdomain-item">• citibankstatementsha512.tesla.com</div>
+<div class="subdomain-item">• click.emails.tesla.com</div>
+<div class="subdomain-item">• cloud.tesla.com</div>
+<div class="subdomain-item">• cn.tesla.com</div>
+<div class="subdomain-item">• cnvpn.tesla.com</div>
+<div class="subdomain-item">• cnvpn1.tesla.com</div>
+<div class="subdomain-item">• codeload.extgithub.tesla.com</div>
+<div class="subdomain-item">• codeload.github-ap.tesla.com</div>
+<div class="subdomain-item">• codeload.github-fw.tesla.com</div>
+<div class="subdomain-item">• codeload.github-it.tesla.com</div>
+<div class="subdomain-item">• codeload.github.tesla.com</div>
+<div class="subdomain-item">• consul.bottlerocket.tesla.com</div>
+<div class="subdomain-item">• containers.extgithub.tesla.com</div>
+<div class="subdomain-item">• cradlepointtest01.tesla.com</div>
+<div class="subdomain-item">• cryptopay.tesla.com</div>
+<div class="subdomain-item">• cryptopay2.tesla.com</div>
+<div class="subdomain-item">• cryptopay3.tesla.com</div>
+<div class="subdomain-item">• cryptopay4.tesla.com</div>
+<div class="subdomain-item">• cssp-dev-teleport-proxy.tesla.com</div>
+<div class="subdomain-item">• cx-apac-stg.tesla.com</div>
+<div class="subdomain-item">• cx-apac.tesla.com</div>
+<div class="subdomain-item">• cx-api-apac-stg.tesla.com</div>
+<div class="subdomain-item">• cx-api-apac.tesla.com</div>
+<div class="subdomain-item">• cxadmin-apac-stg.tesla.com</div>
+<div class="subdomain-item">• cxadmin-apac.tesla.com</div>
+<div class="subdomain-item">• cxadmin-api-apac-stg.tesla.com</div>
+<div class="subdomain-item">• cxadmin-api-apac.tesla.com</div>
+<div class="subdomain-item">• cxengine-apac-stg.tesla.com</div>
+<div class="subdomain-item">• cxengine-apac.tesla.com</div>
+<div class="subdomain-item">• cyberbeer.tesla.com</div>
+<div class="subdomain-item">• dal11-gpgw1.tesla.com</div>
+<div class="subdomain-item">• dashcam.tesla.com</div>
+<div class="subdomain-item">• de.tesla.com</div>
+<div class="subdomain-item">• dev-hermes-qd.tesla.com</div>
+<div class="subdomain-item">• dev.kronosdb.tesla.com</div>
+<div class="subdomain-item">• dev.tesla.com</div>
+<div class="subdomain-item">• dex.ops.bn.na.vn.cloud.tesla.com</div>
+<div class="subdomain-item">• dex.ops.na.vn.cloud.tesla.com</div>
+<div class="subdomain-item">• dex.ops.vs-bnc.na.vn.cloud.tesla.com</div>
+<div class="subdomain-item">• dgf.tesla.com</div>
+<div class="subdomain-item">• dhc.tesla.com</div>
+<div class="subdomain-item">• digitalassets-accounts.tesla.com</div>
+<div class="subdomain-item">• digitalassets-contents.tesla.com</div>
+<div class="subdomain-item">• digitalassets-energy.tesla.com</div>
+<div class="subdomain-item">• digitalassets-learning.tesla.com</div>
+<div class="subdomain-item">• digitalassets-secure.tesla.com</div>
+<div class="subdomain-item">• digitalassets-shop.tesla.com</div>
+<div class="subdomain-item">• digitalassets-stage.tesla.com</div>
+<div class="subdomain-item">• digitalassets.tesla.com</div>
+<div class="subdomain-item">• diner-api-stage.tesla.com</div>
+</div>
+<p style="color:#8B949E;margin-top:8px">… and 381 more in JSON</p>
+<a class="dl-btn" href="tesla.com\tesla.com_certsh.json" style="margin-top:10px;display:inline-block">⬇ Cert JSON</a>
+<h3 style="margin:14px 0 8px">📜 Certificates</h3>
+<table class="data-table"><tr><th>ID</th><th>Issuer</th><th>Valid Until</th><th>Days Left</th><th>Names</th></tr>
+<tr><td>25894312978</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-28T23:59:59</td><td>20</td><td>mobile-links.eng.vn.cloud.tesla.com, mobile-links.eng.vn.cloud.tesla.com</td></tr>
+<tr><td>25894283093</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-28T23:59:59</td><td>20</td><td>tripx-alpha.prd.vn.cloud.tesla.com, tripx-alpha.prd.vn.cloud.tesla.com</td></tr>
+<tr><td>25862005138</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-26T23:59:59</td><td>18</td><td>media-server-api.eng.vn.cloud.tesla.com, media-server-api.eng.vn.cloud.tesla.com, media-server-qr.eng.america.vn.cloud.tesla.com</td></tr>
+<tr><td>25861450516</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-11-11T23:59:59</td><td>187</td><td>m365api.tesla.com, m365api.tesla.com</td></tr>
+<tr><td>25796349679</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-25T23:59:59</td><td>17</td><td>ownerapi-alpha.prd.vn.cloud.tesla.com, ownerapi-alpha.prd.vn.cloud.tesla.com</td></tr>
+<tr><td>25711058732</td><td>C=US, O=Let&#x27;s Encrypt, CN=E7</td><td>2026-07-22T13:54:53</td><td>74</td><td>robotaxi-app-feedback-eng.tesla.com, robotaxi-app-feedback-eng.tesla.com</td></tr>
+<tr><td>25711047220</td><td>C=US, O=Let&#x27;s Encrypt, CN=E7</td><td>2026-07-22T13:54:23</td><td>74</td><td>robotaxi-app-feedback-prd.tesla.com, robotaxi-app-feedback-prd.tesla.com</td></tr>
+<tr><td>25682661347</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-11-06T23:59:59</td><td>182</td><td>github-fw.tesla.com, assets.github-fw.tesla.com, avatars.github-fw.tesla.com, codeload.github-fw.tesla.com, docker.github-fw.tesla.com, gist.github-fw.tesla.com, github-fw.tesla.com, maven.github-fw.tesla.com, media.github-fw.tesla.com, notebooks.github-fw.tesla.com, npm.github-fw.tesla.com, nuget.github-fw.tesla.com, pages.github-fw.tesla.com, raw.github-fw.tesla.com, render.github-fw.tesla.com, reply.github-fw.tesla.com, ro.github-fw.tesla.com, rubygems.github-fw.tesla.com, uploads.github-fw.tesla.com, viewscreen.github-fw.tesla.com</td></tr>
+<tr><td>25664266116</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-20T23:59:59</td><td>12</td><td>ownerapi-api.eng.euw1.vn.cloud.tesla.com, ownerapi-api.eng.euw1.vn.cloud.tesla.com</td></tr>
+<tr><td>25664195835</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-20T23:59:59</td><td>12</td><td>ownerapi-api.eng.usw.vn.cloud.tesla.com, ownerapi-api.eng.usw.vn.cloud.tesla.com</td></tr>
+<tr><td>25600277018</td><td>C=US, O=Amazon, CN=Amazon RSA 2048 M01</td><td>2026-10-02T23:59:59</td><td>147</td><td>apf-api.eng.vn.cloud.tesla.com, apf-api.eng.vn.cloud.tesla.com</td></tr>
+<tr><td>25542573748</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-17T23:59:59</td><td>9</td><td>media-server-dev-api.eng.vn.cloud.tesla.com, media-server-dev-api.eng.vn.cloud.tesla.com, media-server-qr-dev.eng.america.vn.cloud.tesla.com</td></tr>
+<tr><td>25548756032</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-31T23:59:59</td><td>176</td><td>dashcam.tesla.com, dashcam.tesla.com</td></tr>
+<tr><td>25529894165</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-30T23:59:59</td><td>175</td><td>wire.tesla.com, wire.tesla.com</td></tr>
+<tr><td>25857856866</td><td>C=US, O=Amazon, CN=Amazon RSA 2048 M01</td><td>2026-10-02T23:59:59</td><td>147</td><td>apf-api.prd.vn.cloud.tesla.com, apf-api.prd.vn.cloud.tesla.com</td></tr>
+<tr><td>25509388820</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2026-10-28T23:59:59</td><td>173</td><td>obs.tesla.com, obs.tesla.com, obs.tesla.com</td></tr>
+<tr><td>25508118469</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2026-10-28T23:59:59</td><td>173</td><td>tesla.com, tesla.com, tesla.com</td></tr>
+<tr><td>25618708349</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-28T23:59:59</td><td>173</td><td>consul.bottlerocket.tesla.com, consul.bottlerocket.tesla.com</td></tr>
+<tr><td>25618709194</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-28T23:59:59</td><td>173</td><td>discovery.bottlerocket.tesla.com, discovery.bottlerocket.tesla.com</td></tr>
+<tr><td>25461835185</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-10T23:59:59</td><td>2</td><td>tripx.prd.euw1.vn.cloud.tesla.com, tripx.prd.euw1.vn.cloud.tesla.com</td></tr>
+<tr><td>25461834691</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-10T23:59:59</td><td>2</td><td>signaling-alpha.prd.vn.cloud.tesla.com, signaling-alpha.prd.vn.cloud.tesla.com</td></tr>
+<tr><td>25451544954</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-09T23:59:59</td><td>1</td><td>tripx.eng.usw.vn.cloud.tesla.com, tripx.eng.usw2.vn.cloud.tesla.com, tripx.eng.usw.vn.cloud.tesla.com</td></tr>
+<tr><td>25450426270</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-09T23:59:59</td><td>1</td><td>signaling-robotics.eng.vn.cloud.tesla.com, signaling-robotics.eng.vn.cloud.tesla.com</td></tr>
+<tr><td>25459609096</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-24T23:59:59</td><td>169</td><td>warehouse.tesla.com, warehouse.tesla.com</td></tr>
+<tr><td>25459584168</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-24T23:59:59</td><td>169</td><td>serviceapp.tesla.com, serviceapp.tesla.com</td></tr>
+<tr><td>25459482885</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-24T23:59:59</td><td>169</td><td>mfs-synergy.tesla.com, mfs-synergy.tesla.com</td></tr>
+<tr><td>25706632289</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-24T23:59:59</td><td>169</td><td>mfs-reno.tesla.com, mfs-reno.tesla.com</td></tr>
+<tr><td>25459379468</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-24T23:59:59</td><td>169</td><td>issue-trackerapi.tesla.com, issue-trackerapi.tesla.com</td></tr>
+<tr><td>25459287115</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-24T23:59:59</td><td>169</td><td>issue-trackerapi-stg.tesla.com, issue-trackerapi-stg.tesla.com</td></tr>
+<tr><td>25459235427</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-24T23:59:59</td><td>169</td><td>issue-tracker.tesla.com, issue-tracker.tesla.com</td></tr>
+<tr><td>25474304462</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-24T23:59:59</td><td>169</td><td>issue-tracker-stg.tesla.com, issue-tracker-stg.tesla.com</td></tr>
+<tr><td>25705732222</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-24T23:59:59</td><td>169</td><td>humans.tesla.com, humans.tesla.com</td></tr>
+<tr><td>25459049778</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-24T23:59:59</td><td>169</td><td>factory.tesla.com, factory.tesla.com</td></tr>
+<tr><td>25587948923</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-08T23:59:59</td><td>0</td><td>tripx.prd.vn.cloud.tesla.com, tripx.prd.vn.cloud.tesla.com</td></tr>
+<tr><td>25445107435</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-08T23:59:59</td><td>0</td><td>tripx.prd.usw.vn.cloud.tesla.com, tripx.prd.usw.vn.cloud.tesla.com</td></tr>
+<tr><td>25456446293</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-24T23:59:59</td><td>169</td><td>cryptopay3.tesla.com, cryptopay3.tesla.com</td></tr>
+<tr><td>25456406485</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-24T23:59:59</td><td>169</td><td>cryptopay2.tesla.com, cryptopay2.tesla.com</td></tr>
+<tr><td>25456256023</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-24T23:59:59</td><td>169</td><td>cryptopay.tesla.com, cryptopay.tesla.com</td></tr>
+<tr><td>25435197221</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-08T23:59:59</td><td>0</td><td>fleet-api.eng.na.vn.cloud.tesla.com, fleet-api.eng.na.vn.cloud.tesla.com</td></tr>
+<tr><td>25438492732</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-22T23:59:59</td><td>167</td><td>inference-eu.bottlerocket.tesla.com, inference-eu.bottlerocket.tesla.com</td></tr>
+<tr><td>25420232183</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-18T23:59:59</td><td>163</td><td>tesla-inc-docsys-eorg.tesla.com, tesla-inc-docsys-eorg.tesla.com</td></tr>
+<tr><td>25413501199</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-21T23:59:59</td><td>166</td><td>inference-eu-staging.bottlerocket.tesla.com, inference-eu-staging.bottlerocket.tesla.com</td></tr>
+<tr><td>25617636025</td><td>C=US, O=Let&#x27;s Encrypt, CN=R12</td><td>2026-06-30T17:12:35</td><td>52</td><td>digitalassets-shop.tesla.com</td></tr>
+<tr><td>25218897509</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=GeoTrust TLS RSA CA G1</td><td>2026-10-09T23:59:59</td><td>154</td><td>serviceapp.tesla.com, www.tesla.com</td></tr>
+<tr><td>25216556177</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-07T23:59:59</td><td>152</td><td>bottlerocket.tesla.com, bottlerocket.tesla.com, bottlerocket.tesla.com</td></tr>
+<tr><td>25215420584</td><td>C=US, O=&quot;Tesla, Inc.&quot;, CN=Tesla Public RSA TLS Issuing CA 2024</td><td>2026-10-09T23:59:59</td><td>154</td><td>vdi.tesla.com, vdi.tesla.com</td></tr>
+<tr><td>25148466440</td><td>C=US, O=Amazon, CN=Amazon RSA 2048 M04</td><td>2026-07-02T23:59:59</td><td>55</td><td>engage.tesla.com, engage.tesla.com, engage.tesla.com</td></tr>
+<tr><td>25142039386</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G3 TLS ECC SHA384 2020 CA1</td><td>2026-10-06T23:59:59</td><td>151</td><td>bettertime.tesla.com, bettertime-stage.tesla.com, bettertime.tesla.com</td></tr>
+<tr><td>25097299105</td><td>C=US, O=&quot;Tesla, Inc.&quot;, CN=Tesla Public RSA TLS Issuing CA 2024</td><td>2026-09-27T23:59:59</td><td>142</td><td>apf-api.eng.vn.cloud.tesla.com, apf-api.prd.vn.cloud.tesla.com, gem-api.eng.vn.cloud.tesla.com, gem-api.prd.vn.cloud.tesla.com</td></tr>
+<tr><td>25035881541</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-01T23:59:59</td><td>146</td><td>sentry-api.ops.na.vn.cloud.tesla.com, sentry-api.ops.na.vn.cloud.tesla.com</td></tr>
+<tr><td>25033210520</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-09-30T23:59:59</td><td>145</td><td>sts-broker.bottlerocket.tesla.com, sts-broker.bottlerocket.tesla.com</td></tr>
+<tr><td>24987201408</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G3 TLS ECC SHA384 2020 CA1</td><td>2026-09-28T23:59:59</td><td>143</td><td>tx.tesla.com, tx.tesla.com, tx.tesla.com</td></tr>
+<tr><td>24985612431</td><td>C=US, O=Let&#x27;s Encrypt, CN=R13</td><td>2026-06-12T14:56:13</td><td>34</td><td>digitalassets-contents.tesla.com</td></tr>
+<tr><td>24975826876</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-09-28T23:59:59</td><td>143</td><td>s3.prd.na.vn.cloud.tesla.com, s3.prd.na.vn.cloud.tesla.com</td></tr>
+<tr><td>24973174768</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-09-28T23:59:59</td><td>143</td><td>live-data.fn.tesla.com, live-data.america.fn.tesla.com, live-data.europe.fn.tesla.com, live-data.fn.tesla.com, live-data.prd.america.fn.tesla.com, live-data.prd.eu.fn.tesla.com, live-data.prd.europe.fn.tesla.com, live-data.prd.euw1.fn.tesla.com, live-data.prd.na.fn.tesla.com, live-data.prd.usw2.fn.tesla.com</td></tr>
+<tr><td>24971559270</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-09-27T23:59:59</td><td>142</td><td>citiapisslprodv7.tesla.com, citiapisslprodv7.tesla.com</td></tr>
+<tr><td>24971541972</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-09-27T23:59:59</td><td>142</td><td>citiapipgpprodv7.tesla.com, citiapipgpprodv7.tesla.com</td></tr>
+<tr><td>24971209278</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-09-27T23:59:59</td><td>142</td><td>s3.eng.na.vn.cloud.tesla.com, s3.eng.na.vn.cloud.tesla.com</td></tr>
+<tr><td>24970987086</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-09-27T23:59:59</td><td>142</td><td>citiapisshprodv6.tesla.com, citiapisshprodv6.tesla.com</td></tr>
+<tr><td>24970931781</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-09-27T23:59:59</td><td>142</td><td>citiapipgpprodv6.tesla.com, citiapipgpprodv6.tesla.com</td></tr>
+<tr><td>24946622962</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-09-26T23:59:59</td><td>141</td><td>dex.ops.bn.na.vn.cloud.tesla.com, dex.ops.bn.na.vn.cloud.tesla.com</td></tr>
+<tr><td>24932664891</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-09-26T23:59:59</td><td>141</td><td>tripx.prd.usw2.vn.cloud.tesla.com, tripx.prd.usw2.vn.cloud.tesla.com</td></tr>
+<tr><td>24927478157</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-03-20T23:59:59</td><td>-48</td><td>thisistest.tesla.com, thisistest.tesla.com</td></tr>
+<tr><td>24907892893</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-09-24T23:59:59</td><td>139</td><td>sentry-api-test.ops.na.vn.cloud.tesla.com, sentry-api-test.ops.na.vn.cloud.tesla.com</td></tr>
+<tr><td>24902835739</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-09-24T23:59:59</td><td>139</td><td>s3.a.vast-dr.tcs.tesla.com, s3.a.buf01.tcs.tesla.com, s3.a.vast-dr.tcs.tesla.com</td></tr>
+<tr><td>24826715072</td><td>C=BE, O=GlobalSign nv-sa, CN=GlobalSign Atlas R3 DV TLS CA 2026 Q1</td><td>2027-04-07T23:46:13</td><td>334</td><td>digitalassets-secure.tesla.com, digitalassets-secure.tesla.com</td></tr>
+<tr><td>24788923056</td><td>C=US, O=Let&#x27;s Encrypt, CN=R13</td><td>2026-06-02T22:33:51</td><td>25</td><td>digitalassets-accounts.tesla.com, digitalassets-energy.tesla.com</td></tr>
+<tr><td>24771783694</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-09-18T23:59:59</td><td>133</td><td>tesla-hermes-snapshot-motors.eng.usw.vn.cloud.tesla.com, tesla-hermes-snapshot-motors.eng.usw.vn.cloud.tesla.com</td></tr>
+<tr><td>24626613162</td><td>C=US, O=&quot;Tesla, Inc.&quot;, CN=Tesla Public RSA TLS Issuing CA 2024</td><td>2026-09-10T23:59:59</td><td>125</td><td>sc-eu-cppm.tesla.com, sc-eu-cppm.tesla.com</td></tr>
+<tr><td>24519310446</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2027-03-22T23:59:59</td><td>318</td><td>github.tesla.com, assets.github.tesla.com, avatars.github.tesla.com, codeload.github.tesla.com, docker.github.tesla.com, gist.github.tesla.com, github.tesla.com, maven.github.tesla.com, media.github.tesla.com, notebooks.github.tesla.com, npm.github.tesla.com, nuget.github.tesla.com, pages.github.tesla.com, raw.github.tesla.com, render.github.tesla.com, reply.github.tesla.com, ro.github.tesla.com, rubygems.github.tesla.com, s3-sidekick-ssl.github.tesla.com, uploads.github.tesla.com, viewscreen.github.tesla.com</td></tr>
+<tr><td>24514098310</td><td>C=US, O=Let&#x27;s Encrypt, CN=R12</td><td>2026-05-20T13:20:26</td><td>11</td><td>digitalassets.tesla.com</td></tr>
+<tr><td>24492519719</td><td>C=US, O=&quot;DigiCert, Inc.&quot;, CN=DigiCert G5 TLS RSA4096 SHA384 2021 CA1</td><td>2027-02-17T23:59:59</td><td>285</td><td>inference.tesla.com, inference.tesla.com</td></tr>
+<tr><td>24492447426</td><td>C=US, O=&quot;Tesla, Inc.&quot;, CN=Tesla Public RSA TLS Issuing CA 2024</td><td>2026-04-18T23:59:59</td><td>-19</td><td>pixiecloud.tesla.com, pixiecloud.tesla.com</td></tr>
+<tr><td>24490802503</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2027-02-17T23:59:59</td><td>285</td><td>gf.tesla.com, ca.tesla.com, ca.tesla.com, cn.tesla.com, cn.tesla.com, de.tesla.com, de.tesla.com, gf.tesla.com, gf.tesla.com, nv.tesla.com, nv.tesla.com, ny.tesla.com, ny.tesla.com, paloalto.tesla.com, paloalto.tesla.com, tx.tesla.com, tx.tesla.com</td></tr>
+<tr><td>24475221532</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2027-03-20T23:59:59</td><td>316</td><td>teslacmgus01.tesla.com, teslacmgus01.tesla.com</td></tr>
+<tr><td>24475193351</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2027-03-20T23:59:59</td><td>316</td><td>teslacmgeu01.tesla.com, teslacmgeu01.tesla.com</td></tr>
+<tr><td>24475159215</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2027-03-20T23:59:59</td><td>316</td><td>teslacmgcn01.tesla.com, teslacmgcn01.tesla.com</td></tr>
+<tr><td>24475133538</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2027-03-20T23:59:59</td><td>316</td><td>teslacmgap01.tesla.com, teslacmgap01.tesla.com</td></tr>
+<tr><td>24452148535</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G3 TLS ECC SHA384 2020 CA1</td><td>2026-10-30T23:59:59</td><td>175</td><td>fleet-auth.prd.vn.cloud.tesla.com, fleet-auth.prd.vn.cloud.tesla.com</td></tr>
+<tr><td>24451526909</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2027-02-16T23:59:59</td><td>284</td><td>fleet-auth.tesla.com, fleet-auth.tesla.com</td></tr>
+<tr><td>24360274312</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-07-17T23:59:59</td><td>70</td><td>employeefeedback.tesla.com, feedback.tesla.com</td></tr>
+<tr><td>24345998639</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2027-03-15T23:59:59</td><td>311</td><td>apac-cppm.tesla.com, apac-cppm.tesla.com</td></tr>
+<tr><td>24321243641</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2027-02-10T23:59:59</td><td>278</td><td>s3.a.smf11.tcs.tesla.com, s3.a.smf11.tcs.tesla.com, s3.b.smf11.tcs.tesla.com, s3.c.smf11.tcs.tesla.com, s3.d.smf11.tcs.tesla.com, ui.a.smf11.tcs.tesla.com, ui.b.smf11.tcs.tesla.com, ui.c.smf11.tcs.tesla.com, ui.d.smf11.tcs.tesla.com, x3.obs.tesla.com</td></tr>
+<tr><td>24206079874</td><td>C=US, O=&quot;Tesla, Inc.&quot;, CN=Tesla Public RSA TLS Issuing CA 2024</td><td>2027-03-08T23:59:59</td><td>304</td><td>bettertime-stage.tesla.com, bettertime-stage.tesla.com</td></tr>
+<tr><td>24205917269</td><td>C=US, O=&quot;Tesla, Inc.&quot;, CN=Tesla Public RSA TLS Issuing CA 2024</td><td>2027-03-08T23:59:59</td><td>304</td><td>bettertime.tesla.com, bettertime.tesla.com</td></tr>
+<tr><td>24205155331</td><td>C=US, O=&quot;Tesla, Inc.&quot;, CN=Tesla Public RSA TLS Issuing CA 2024</td><td>2027-03-08T23:59:59</td><td>304</td><td>sso-dev.tesla.com, sso-dev.tesla.com</td></tr>
+<tr><td>24205117845</td><td>C=US, O=&quot;Tesla, Inc.&quot;, CN=Tesla Public RSA TLS Issuing CA 2024</td><td>2027-03-08T23:59:59</td><td>304</td><td>sso.tesla.com, sso.tesla.com</td></tr>
+<tr><td>24111790092</td><td>C=US, O=&quot;Tesla, Inc.&quot;, CN=Tesla Public RSA TLS Issuing CA 2024</td><td>2027-02-02T23:59:59</td><td>270</td><td>cloud.tesla.com, cloud.tesla.com, cloud.tesla.com</td></tr>
+<tr><td>24086438987</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G3 TLS ECC SHA384 2020 CA1</td><td>2027-01-19T23:59:59</td><td>256</td><td>akamai-apigateway-vehicleextinfogw-prdsvc-st.tesla.com, akamai-apigateway-einvoicing-stg.tesla.com, akamai-apigateway-vehicleextinfogw-prdsvc-st.tesla.com, akamai-apigateway-vehicleextinfogw-stgsvc-st.tesla.com, bettertime-stage.tesla.com, bettertime.tesla.com, dev-hermes-qd.tesla.com, exp-zcp-cloud-eu-itmfg-staging.tesla.com, exp-zcp-cloud-eu-itmfg.tesla.com, exp-zcp-cloud-na-itmfg-staging.tesla.com, exp-zcp-cloud-na-itmfg.tesla.com, logcollector-ext.tesla.com, logtransit-ext.tesla.com</td></tr>
+<tr><td>24081065911</td><td>C=US, O=&quot;Tesla, Inc.&quot;, CN=Tesla Public RSA TLS Issuing CA 2024</td><td>2027-01-29T23:59:59</td><td>266</td><td>sc-cppm.tesla.com, sc-cppm.tesla.com</td></tr>
+<tr><td>24063185563</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2027-02-09T23:59:59</td><td>277</td><td>github-ap.tesla.com, assets.github-ap.tesla.com, avatars.github-ap.tesla.com, codeload.github-ap.tesla.com, docker.github-ap.tesla.com, gist.github-ap.tesla.com, github-ap.tesla.com, maven.github-ap.tesla.com, media.github-ap.tesla.com, notebooks.github-ap.tesla.com, npm.github-ap.tesla.com, nuget.github-ap.tesla.com, pages.github-ap.tesla.com, raw.github-ap.tesla.com, render.github-ap.tesla.com, reply.github-ap.tesla.com, ro.github-ap.tesla.com, rubygems.github-ap.tesla.com, uploads.github-ap.tesla.com, viewscreen.github-ap.tesla.com</td></tr>
+<tr><td>23806065971</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2027-02-16T23:59:59</td><td>284</td><td>github-fw.tesla.com, assets.github-fw.tesla.com, avatars.github-fw.tesla.com, codeload.github-fw.tesla.com, docker.github-fw.tesla.com, gist.github-fw.tesla.com, github-fw.tesla.com, maven.github-fw.tesla.com, media.github-fw.tesla.com, notebooks.github-fw.tesla.com, npm.github-fw.tesla.com, nuget.github-fw.tesla.com, pages.github-fw.tesla.com, raw.github-fw.tesla.com, render.github-fw.tesla.com, reply.github-fw.tesla.com, rubygems.github-fw.tesla.com, uploads.github-fw.tesla.com, viewscreen.github-fw.tesla.com</td></tr>
+<tr><td>23790472797</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2027-01-22T23:59:59</td><td>259</td><td>github-it.tesla.com, assets.github-it.tesla.com, avatars.github-it.tesla.com, codeload.github-it.tesla.com, docker.github-it.tesla.com, gist.github-it.tesla.com, github-it.tesla.com, maven.github-it.tesla.com, media.github-it.tesla.com, notebooks.github-it.tesla.com, npm.github-it.tesla.com, nuget.github-it.tesla.com, pages.github-it.tesla.com, raw.github-it.tesla.com, render.github-it.tesla.com, reply.github-it.tesla.com, rubygems.github-it.tesla.com, uploads.github-it.tesla.com, viewscreen.github-it.tesla.com</td></tr>
+<tr><td>23519731417</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2027-02-02T23:59:59</td><td>270</td><td>iad05-gpgw1.tesla.com, ams13-gpgw1.tesla.com, dal11-gpgw1.tesla.com, fra05-gpgw1.tesla.com, hnd13-gpgw1.tesla.com, iad05-gpgw1.tesla.com, lax32-gpgw1.tesla.com, sin05-gpgw1.tesla.com, sjc36-gpgw1.tesla.com, syd14-gpgw1.tesla.com</td></tr>
+<tr><td>23504017085</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2027-02-02T23:59:59</td><td>270</td><td>gpv.tesla.com, gpv.tesla.com</td></tr>
+<tr><td>23226799668</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-12-22T23:59:59</td><td>228</td><td>fleet-api.prd.na.vn.cloud.tesla.com, fleet-api.prd.na.vn.cloud.tesla.com, fleet-api.prd.usw2.vn.cloud.tesla.com</td></tr>
+<tr><td>23220800524</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-12-18T23:59:59</td><td>224</td><td>fleet-api.prd.na.vn.cloud.tesla.com, fleet-api.prd.na.vn.cloud.tesla.com, fleet-api.prd.usw.vn.cloud.tesla.com</td></tr>
+<tr><td>23066151769</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-12-11T23:59:59</td><td>217</td><td>media-server-api.prd.vn.cloud.tesla.com, media-server-api.prd.vn.cloud.tesla.com, media-server-qr.prd.america.vn.cloud.tesla.com</td></tr>
+<tr><td>23048796094</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-12-10T23:59:59</td><td>216</td><td>ownerapi-api.prd.usw.vn.cloud.tesla.com, ownerapi-api.prd.usw.vn.cloud.tesla.com</td></tr>
+<tr><td>23032311879</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2026-04-14T23:59:59</td><td>-23</td><td>kronos.tesla.com, api.kronos.tesla.com, integration.kronos.tesla.com, kronosdb.tesla.com, kronos.tesla.com, mobile.kronos.tesla.com, wdm.kronos.tesla.com, wim.kronos.tesla.com</td></tr>
+<tr><td>23006759245</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-12-08T23:59:59</td><td>214</td><td>inference-staging.tesla.com, inference-staging.tesla.com</td></tr>
+<tr><td>22943233605</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G3 TLS ECC SHA384 2020 CA1</td><td>2026-12-08T23:59:59</td><td>214</td><td>energy.tesla.com, energy.tesla.com, energy.tesla.com, powerhub.energy.tesla.com</td></tr>
+<tr><td>22943232989</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G3 TLS ECC SHA384 2020 CA1</td><td>2026-12-08T23:59:59</td><td>214</td><td>nv.tesla.com, nv.tesla.com, nv.tesla.com</td></tr>
+<tr><td>22894665512</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-30T23:59:59</td><td>175</td><td>s3.a.smf13.tcs.tesla.com, s3.a.energy.smf12.tcs.tesla.com, s3.a.energy.smf13.tcs.tesla.com, s3.a.energy.vast.tcs.tesla.com, s3.a.smf12.tcs.tesla.com, s3.a.smf13.tcs.tesla.com, s3.a.vast.tcs.tesla.com, s3.b.ams15.tcs.tesla.com, s3.b.ams17.tcs.tesla.com, s3.b.energy.ams15.tcs.tesla.com, s3.b.energy.ams17.tcs.tesla.com, s3.b.energy.vast.tcs.tesla.com, s3.b.vast.tcs.tesla.com</td></tr>
+<tr><td>22866938305</td><td>C=US, O=&quot;Tesla, Inc.&quot;, CN=Tesla Public RSA TLS Issuing CA 2024</td><td>2026-12-10T23:59:59</td><td>216</td><td>vrp-stg.tesla.com, vrp-stg.tesla.com</td></tr>
+<tr><td>22729339340</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-11-24T23:59:59</td><td>200</td><td>auth.prd.usw.vn.cloud.tesla.com, auth.prd.usw.vn.cloud.tesla.com</td></tr>
+<tr><td>22470349253</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-30T23:59:59</td><td>175</td><td>mobile-links.prd.vn.cloud.tesla.com, mobile-links.prd.vn.cloud.tesla.com, mobile-ops-links.prd.vn.cloud.tesla.com</td></tr>
+<tr><td>22449182536</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-11-12T23:59:59</td><td>188</td><td>live-data.fn.tesla.com, live-data.america.fn.tesla.com, live-data.europe.fn.tesla.com, live-data.fn.tesla.com, live-data.prd.america.fn.tesla.com, live-data.prd.eu.fn.tesla.com, live-data.prd.europe.fn.tesla.com, live-data.prd.euw1.fn.tesla.com, live-data.prd.na.fn.tesla.com, live-data.prd.usw.fn.tesla.com</td></tr>
+<tr><td>22449153188</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-11-12T23:59:59</td><td>188</td><td>fleetview.fn.tesla.com, fleetview.america.fn.tesla.com, fleetview.europe.fn.tesla.com, fleetview.fn.tesla.com, fleetview.prd.america.fn.tesla.com, fleetview.prd.eu.fn.tesla.com, fleetview.prd.europe.fn.tesla.com, fleetview.prd.euw1.fn.tesla.com, fleetview.prd.na.fn.tesla.com, fleetview.prd.usw.fn.tesla.com</td></tr>
+<tr><td>22425125844</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-11-12T23:59:59</td><td>188</td><td>fleet-api.prd.na.vn.cloud.tesla.com, fleet-api.prd.na.vn.cloud.tesla.com</td></tr>
+<tr><td>22125214439</td><td>C=US, O=&quot;Tesla, Inc.&quot;, CN=Tesla Public RSA TLS Issuing CA 2024</td><td>2026-10-30T23:59:59</td><td>175</td><td>s3.a.smf13.tcs.tesla.com, s3.a.smf12.tcs.tesla.com, s3.a.smf13.tcs.tesla.com, s3.a.vast.tcs.tesla.com, s3.b.ams15.tcs.tesla.com, s3.b.ams17.tcs.tesla.com, s3.b.vast.tcs.tesla.com</td></tr>
+<tr><td>22121411953</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-12-01T23:59:59</td><td>207</td><td>logs.tesla.com, apac.logs.tesla.com, eu.logs.tesla.com, logs.tesla.com, na.logs.tesla.com</td></tr>
+<tr><td>22110848044</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-30T23:59:59</td><td>175</td><td>fleetview.fn.tesla.com, fleetview.america.fn.tesla.com, fleetview.europe.fn.tesla.com, fleetview.fn.tesla.com, fleetview.prd.america.fn.tesla.com, fleetview.prd.eu.fn.tesla.com, fleetview.prd.europe.fn.tesla.com, fleetview.prd.euw1.fn.tesla.com, fleetview.prd.na.fn.tesla.com, fleetview.prd.usw2.fn.tesla.com</td></tr>
+<tr><td>22092974341</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-29T23:59:59</td><td>174</td><td>fleet-api.prd.eu.vn.cloud.tesla.com, fleet-api.prd.eu.vn.cloud.tesla.com</td></tr>
+<tr><td>22067427599</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G3 TLS ECC SHA384 2020 CA1</td><td>2026-10-29T23:59:59</td><td>174</td><td>de.tesla.com, de.tesla.com, de.tesla.com</td></tr>
+<tr><td>21971038475</td><td>C=US, O=&quot;Tesla, Inc.&quot;, CN=Tesla Public RSA TLS Issuing CA 2024</td><td>2026-10-23T23:59:59</td><td>168</td><td>auth.tesla.com, auth.tesla.com</td></tr>
+<tr><td>21944277781</td><td>C=BE, O=GlobalSign nv-sa, CN=GlobalSign Atlas R3 DV TLS CA 2025 Q4</td><td>2026-11-24T14:51:28</td><td>199</td><td>digitalassets-energy.tesla.com, digitalassets-energy.tesla.com</td></tr>
+<tr><td>21888003062</td><td>C=US, O=&quot;Tesla, Inc.&quot;, CN=Tesla Public RSA TLS Issuing CA 2024</td><td>2026-10-20T23:59:59</td><td>165</td><td>payment-dlocal-stg.tesla.com, payment-dlocal-stg.tesla.com</td></tr>
+<tr><td>21887214059</td><td>C=US, O=&quot;Tesla, Inc.&quot;, CN=Tesla Public RSA TLS Issuing CA 2024</td><td>2026-10-20T23:59:59</td><td>165</td><td>payment-dlocal-prod.tesla.com, payment-dlocal-prod.tesla.com</td></tr>
+<tr><td>21791762165</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-15T23:59:59</td><td>160</td><td>auth.prd.euw1.vn.cloud.tesla.com, auth.prd.euw1.vn.cloud.tesla.com</td></tr>
+<tr><td>21584065906</td><td>C=BE, O=GlobalSign nv-sa, CN=GlobalSign Atlas R3 DV TLS CA 2025 Q3</td><td>2026-11-09T23:31:11</td><td>185</td><td>digitalassets-accounts.tesla.com, digitalassets-accounts.tesla.com</td></tr>
+<tr><td>21558870466</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-07T23:59:59</td><td>152</td><td>dex.ops.na.vn.cloud.tesla.com, dex.ops.na.vn.cloud.tesla.com</td></tr>
+<tr><td>21454576675</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-02T23:59:59</td><td>147</td><td>incontrol.tesla.com, incontrol.tesla.com</td></tr>
+<tr><td>21430143406</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-29T23:59:59</td><td>21</td><td>s3.a.smf13.tcs.tesla.com, s3.a.smf12.tcs.tesla.com, s3.a.smf13.tcs.tesla.com, s3.a.vast.tcs.tesla.com, s3.b.vast.tcs.tesla.com</td></tr>
+<tr><td>21406180811</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-11-01T23:59:59</td><td>177</td><td>extgithub.tesla.com, assets.extgithub.tesla.com, avatars.extgithub.tesla.com, codeload.extgithub.tesla.com, containers.extgithub.tesla.com, docker.extgithub.tesla.com, extgithub.tesla.com, gist.extgithub.tesla.com, maven.extgithub.tesla.com, media.extgithub.tesla.com, notebooks.extgithub.tesla.com, npm.extgithub.tesla.com, nuget.extgithub.tesla.com, pages.extgithub.tesla.com, raw.extgithub.tesla.com, reply.extgithub.tesla.com, rubygems.extgithub.tesla.com, uploads.extgithub.tesla.com, viewscreen.extgithub.tesla.com</td></tr>
+<tr><td>21377979089</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-24T23:59:59</td><td>169</td><td>autobidder-preprd.powerhub.energy.tesla.com, autobidder-preprd.powerhub.energy.tesla.com</td></tr>
+<tr><td>21347281903</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-10-13T23:59:59</td><td>158</td><td>mfg.tesla.com, mfg.tesla.com, mfg.tesla.com</td></tr>
+<tr><td>20880128801</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-29T23:59:59</td><td>21</td><td>s3.a.smf13.tcs.tesla.com, s3.a.smf12.tcs.tesla.com, s3.a.smf13.tcs.tesla.com, s3.a.vast.tcs.tesla.com</td></tr>
+<tr><td>20766325166</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-09-02T23:59:59</td><td>117</td><td>auth-stage.tesla.com, auth-stage.tesla.com</td></tr>
+<tr><td>20639551021</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-08-27T23:59:59</td><td>111</td><td>auth.eng.usw.vn.cloud.tesla.com, auth.eng.usw.vn.cloud.tesla.com</td></tr>
+<tr><td>20572305960</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-08-24T23:59:59</td><td>108</td><td>docs.bottlerocket.tesla.com, docs.bottlerocket.tesla.com</td></tr>
+<tr><td>20512732729</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-06-05T23:59:59</td><td>28</td><td>signaling-robotics.eng.vn.cloud.tesla.com, signaling-robotics.eng.usw.vn.cloud.tesla.com, signaling-robotics.eng.vn.cloud.tesla.com</td></tr>
+<tr><td>20441579594</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-08-18T23:59:59</td><td>102</td><td>auth.eng.euw1.vn.cloud.tesla.com, auth.eng.euw1.vn.cloud.tesla.com</td></tr>
+<tr><td>20405356367</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-08-20T23:59:59</td><td>104</td><td>teslacmgna01.tesla.com, teslacmgna01.tesla.com</td></tr>
+<tr><td>20355059805</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-08-14T23:59:59</td><td>98</td><td>tf-poc.tesla.com, tf-poc.tesla.com</td></tr>
+<tr><td>20332195852</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-08-13T23:59:59</td><td>97</td><td>genai.tesla.com, genai.tesla.com</td></tr>
+<tr><td>20295003725</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-08-11T23:59:59</td><td>95</td><td>veritas-staging.bottlerocket.tesla.com, veritas-staging.bottlerocket.tesla.com</td></tr>
+<tr><td>20168895883</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-08-06T23:59:59</td><td>90</td><td>tokens-staging.bottlerocket.tesla.com, tokens-staging.bottlerocket.tesla.com</td></tr>
+<tr><td>20168644948</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-08-06T23:59:59</td><td>90</td><td>chat-staging.bottlerocket.tesla.com, chat-staging.bottlerocket.tesla.com</td></tr>
+<tr><td>20167910322</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-08-05T23:59:59</td><td>89</td><td>energy-technician.bottlerocket.tesla.com, energy.bottlerocket.tesla.com, energy-technician.bottlerocket.tesla.com, ir.bottlerocket.tesla.com, staging.bottlerocket.tesla.com</td></tr>
+<tr><td>20158910687</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-08-05T23:59:59</td><td>89</td><td>inference-staging.bottlerocket.tesla.com, inference-staging.bottlerocket.tesla.com</td></tr>
+<tr><td>20148568225</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-08-05T23:59:59</td><td>89</td><td>taffy.bottlerocket.tesla.com, taffy.bottlerocket.tesla.com</td></tr>
+<tr><td>20065628464</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-08-04T23:59:59</td><td>88</td><td>discovery-service.bottlerocket.tesla.com, discovery-service.bottlerocket.tesla.com</td></tr>
+<tr><td>20060436209</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-07-31T23:59:59</td><td>84</td><td>staging.bottlerocket.tesla.com, staging.bottlerocket.tesla.com</td></tr>
+<tr><td>19961106025</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-07-27T23:59:59</td><td>80</td><td>tripx.eng.usw2.vn.cloud.tesla.com, tripx.eng.usw2.vn.cloud.tesla.com</td></tr>
+<tr><td>19845726957</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-07-22T23:59:59</td><td>75</td><td>embed-staging.bottlerocket.tesla.com, embed-staging.bottlerocket.tesla.com</td></tr>
+<tr><td>19816956237</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-07-20T23:59:59</td><td>73</td><td>inference.bottlerocket.tesla.com, inference.bottlerocket.tesla.com</td></tr>
+<tr><td>19666186760</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-07-13T23:59:59</td><td>66</td><td>dhc.tesla.com, dhc.tesla.com</td></tr>
+<tr><td>19629439701</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=GeoTrust RSA CA 2018</td><td>2025-07-16T23:59:59</td><td>-295</td><td>image.emails.tesla.com, my.tesla.com, serviceapp.tesla.com, smarttax.tesla.com, static.tesla.com, warpbilling.tesla.com, www.tesla.com</td></tr>
+<tr><td>19209827813</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-07-24T23:59:59</td><td>77</td><td>powerhub.energy.tesla.com, autobidder.powerhub.energy.tesla.com, gridlogic.energy.tesla.com, gridlogic.powerhub.energy.tesla.com, powerhub.energy.tesla.com</td></tr>
+<tr><td>19079192149</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-06-16T23:59:59</td><td>39</td><td>diner-webapp.tesla.com, diner-webapp.tesla.com</td></tr>
+<tr><td>19079116329</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-06-16T23:59:59</td><td>39</td><td>diner-webapp-stage.tesla.com, diner-webapp-stage.tesla.com</td></tr>
+<tr><td>19079063946</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-06-16T23:59:59</td><td>39</td><td>diner-api-stage.tesla.com, diner-api-stage.tesla.com</td></tr>
+<tr><td>19041501197</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-06-16T23:59:59</td><td>39</td><td>diner-api.tesla.com, diner-api.tesla.com</td></tr>
+<tr><td>18809854559</td><td>C=US, O=Let&#x27;s Encrypt, CN=E6</td><td>2025-09-02T16:42:00</td><td>-248</td><td>engage.tesla.com, engage.tesla.com, www.engage.tesla.com</td></tr>
+<tr><td>18775453254</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-06-04T23:59:59</td><td>27</td><td>teslamezcal.tesla.com, teslamezcal.tesla.com</td></tr>
+<tr><td>18713260644</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-29T23:59:59</td><td>21</td><td>s3.a.smf13.tcs.tesla.com, s3.a.smf12.tcs.tesla.com, s3.a.smf13.tcs.tesla.com</td></tr>
+<tr><td>18586655536</td><td>C=US, O=Amazon, CN=Amazon RSA 2048 M03</td><td>2026-06-21T23:59:59</td><td>44</td><td>sentry.app.tesla.com, sentry.app.tesla.com</td></tr>
+<tr><td>18469019140</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=GeoTrust TLS RSA CA G1</td><td>2026-05-19T23:59:59</td><td>11</td><td>image.emails.tesla.com, serviceapp.tesla.com, www.tesla.com</td></tr>
+<tr><td>18364003274</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-11T23:59:59</td><td>3</td><td>s3.a.smf13.tcs.tesla.com, s3.a.iad06.tcs.tesla.com, s3.a.smf13.tcs.tesla.com, vms.iad06.tcs.tesla.com, vms.smf13.tcs.tesla.com</td></tr>
+<tr><td>18365172690</td><td>C=US, O=&quot;DigiCert, Inc.&quot;, CN=DigiCert Verified Mark RSA4096 SHA256 2021 CA1</td><td>2026-05-11T23:59:59</td><td>3</td><td>api-firebolt.tesla.com</td></tr>
+<tr><td>18173662889</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-04-30T23:59:59</td><td>-7</td><td>ownerapi-api.eng.usw2.vn.cloud.tesla.com, ownerapi-api.eng.usw2.vn.cloud.tesla.com</td></tr>
+<tr><td>18098994578</td><td>C=US, O=Amazon, CN=Amazon RSA 2048 M03</td><td>2026-05-28T23:59:59</td><td>20</td><td>cx-apac-stg.tesla.com, cxadmin-apac-stg.tesla.com, cxadmin-api-apac-stg.tesla.com, cx-apac-stg.tesla.com, cx-api-apac-stg.tesla.com</td></tr>
+<tr><td>18099027452</td><td>C=US, O=Amazon, CN=Amazon RSA 2048 M03</td><td>2026-05-28T23:59:59</td><td>20</td><td>cx-apac.tesla.com, cx-apac.tesla.com, cx-api-apac.tesla.com</td></tr>
+<tr><td>18098983430</td><td>C=US, O=Amazon, CN=Amazon RSA 2048 M04</td><td>2026-05-28T23:59:59</td><td>20</td><td>cxadmin-apac.tesla.com, cxadmin-apac.tesla.com, cxadmin-api-apac.tesla.com</td></tr>
+<tr><td>18059979253</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-04-09T23:59:59</td><td>-28</td><td>energy.tesla.com, energy.tesla.com, energy.tesla.com</td></tr>
+<tr><td>18044390555</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-25T23:59:59</td><td>17</td><td>vehicle-files.prd.usw2.vn.cloud.tesla.com, vehicle-files.prd.usw2.vn.cloud.tesla.com</td></tr>
+<tr><td>18044337273</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-25T23:59:59</td><td>17</td><td>vehicle-files.eng.usw2.vn.cloud.tesla.com, vehicle-files.eng.usw2.vn.cloud.tesla.com</td></tr>
+<tr><td>18044229059</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-25T23:59:59</td><td>17</td><td>vehicle-files.prd.euw1.vn.cloud.tesla.com, vehicle-files.prd.euw1.vn.cloud.tesla.com</td></tr>
+<tr><td>18044120184</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-25T23:59:59</td><td>17</td><td>vehicle-files.eng.euw1.vn.cloud.tesla.com, vehicle-files.eng.euw1.vn.cloud.tesla.com</td></tr>
+<tr><td>17915273274</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2025-05-14T23:59:59</td><td>-358</td><td>akamai-apigateway-vehicleextinfogw-prdsvc-st.tesla.com, akamai-apigateway-vehicleextinfogw-prdsvc-st.tesla.com, akamai-apigateway-vehicleextinfogw-stgsvc-st.tesla.com, dev-hermes-qd.tesla.com, logcollector-ext.tesla.com, logtransit-ext.tesla.com</td></tr>
+<tr><td>17894516024</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-18T23:59:59</td><td>10</td><td>obs.tesla.com, obs.tesla.com, x3-eng.obs.tesla.com, x3-prod.obs.tesla.com</td></tr>
+<tr><td>17795121406</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-04-15T23:59:59</td><td>-22</td><td>tripx.eng.usw.vn.cloud.tesla.com, tripx.eng.usw.vn.cloud.tesla.com</td></tr>
+<tr><td>17683664351</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-05-08T23:59:59</td><td>0</td><td>extgithub.tesla.com, extgithub.tesla.com</td></tr>
+<tr><td>17216374576</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-03-18T23:59:59</td><td>-50</td><td>citiapisslprodv5.tesla.com, citiapisslprodv5.tesla.com</td></tr>
+<tr><td>17216373455</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-03-18T23:59:59</td><td>-50</td><td>citiapiencprodv5.tesla.com, citiapiencprodv5.tesla.com</td></tr>
+<tr><td>17143856099</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G3 TLS ECC SHA384 2020 CA1</td><td>2026-03-19T23:59:59</td><td>-49</td><td>akamai-apigateway-vehicleextinfogw-prdsvc-st.tesla.com, akamai-apigateway-einvoicing-stg.tesla.com, akamai-apigateway-vehicleextinfogw-prdsvc-st.tesla.com, akamai-apigateway-vehicleextinfogw-stgsvc-st.tesla.com, bettertime-stage.tesla.com, bettertime.tesla.com, dev-hermes-qd.tesla.com, exp-zcp-cloud-na-itmfg.tesla.com, logcollector-ext.tesla.com, logtransit-ext.tesla.com</td></tr>
+<tr><td>16887844590</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-05-26T23:59:59</td><td>-346</td><td>acs2-poc.voice.tesla.com, acs2-poc.voice.tesla.com</td></tr>
+<tr><td>16774547792</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2026-02-18T23:59:59</td><td>-78</td><td>gfb.vdi.tesla.com, gfb.vdi.tesla.com</td></tr>
+<tr><td>16662883384</td><td>C=US, O=Amazon, CN=Amazon RSA 2048 M03</td><td>2026-03-13T23:59:59</td><td>-55</td><td>doraemon-svc-apac-stg.tesla.com, doraemon-svc-apac-stg.tesla.com</td></tr>
+<tr><td>16662883135</td><td>C=US, O=Amazon, CN=Amazon RSA 2048 M03</td><td>2026-03-13T23:59:59</td><td>-55</td><td>doraemon-svc-apac.tesla.com, doraemon-svc-apac.tesla.com</td></tr>
+<tr><td>16588877542</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2026-03-06T23:59:59</td><td>-62</td><td>github.tesla.com, assets.github.tesla.com, avatars.github.tesla.com, codeload.github.tesla.com, docker.github.tesla.com, gist.github.tesla.com, github.tesla.com, maven.github.tesla.com, media.github.tesla.com, notebooks.github.tesla.com, npm.github.tesla.com, nuget.github.tesla.com, pages.github.tesla.com, raw.github.tesla.com, render.github.tesla.com, reply.github.tesla.com, rubygems.github.tesla.com, s3-sidekick-ssl.github.tesla.com, uploads.github.tesla.com, viewscreen.github.tesla.com</td></tr>
+<tr><td>16557655148</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2025-05-14T23:59:59</td><td>-358</td><td>akamai-apigateway-vehicleextinfogw-prdsvc-st.tesla.com, akamai-apigateway-einvoicing-stg.tesla.com, akamai-apigateway-vehicleextinfogw-prdsvc-st.tesla.com, akamai-apigateway-vehicleextinfogw-stgsvc-st.tesla.com, bettertime-stage.tesla.com, bettertime.tesla.com, dev-hermes-qd.tesla.com, logcollector-ext.tesla.com, logtransit-ext.tesla.com</td></tr>
+<tr><td>16495263836</td><td>C=US, O=Amazon, CN=Amazon RSA 2048 M03</td><td>2026-03-06T23:59:59</td><td>-62</td><td>ai-api-stg.tesla.com, ai-api-stg.tesla.com, ai-api-uat.tesla.com, triton-management-stg.tesla.com, triton-management-uat.tesla.com, triton-server-stg.tesla.com, triton-server-uat.tesla.com, tvs-api-stg.tesla.com, tvs-api-uat.tesla.com, tvs-stg.tesla.com, tvs-uat.tesla.com</td></tr>
+<tr><td>16495263444</td><td>C=US, O=Amazon, CN=Amazon RSA 2048 M02</td><td>2026-03-06T23:59:59</td><td>-62</td><td>ai-api.tesla.com, ai-api.tesla.com, triton-management.tesla.com, triton-server.tesla.com, tvs-api.tesla.com, tvs.tesla.com</td></tr>
+<tr><td>16712365199</td><td>C=US, O=Let&#x27;s Encrypt, CN=E6</td><td>2025-04-22T09:18:07</td><td>-381</td><td>energydesk.tesla.com</td></tr>
+<tr><td>16292630942</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2025-05-14T23:59:59</td><td>-358</td><td>akamai-apigateway-vehicleextinfogw-prdsvc-st.tesla.com, akamai-apigateway-einvoicing-stg.tesla.com, akamai-apigateway-vehicleextinfogw-prdsvc-st.tesla.com, akamai-apigateway-vehicleextinfogw-stgsvc-st.tesla.com, dev-hermes-qd.tesla.com, logcollector-ext.tesla.com, logtransit-ext.tesla.com</td></tr>
+<tr><td>16117712368</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2026-02-09T23:59:59</td><td>-87</td><td>github-ap.tesla.com, assets.github-ap.tesla.com, avatars.github-ap.tesla.com, codeload.github-ap.tesla.com, docker.github-ap.tesla.com, gist.github-ap.tesla.com, github-ap.tesla.com, maven.github-ap.tesla.com, media.github-ap.tesla.com, notebooks.github-ap.tesla.com, npm.github-ap.tesla.com, nuget.github-ap.tesla.com, pages.github-ap.tesla.com, raw.github-ap.tesla.com, render.github-ap.tesla.com, reply.github-ap.tesla.com, rubygems.github-ap.tesla.com, uploads.github-ap.tesla.com, viewscreen.github-ap.tesla.com</td></tr>
+<tr><td>15981622565</td><td>C=US, O=&quot;Tesla, Inc.&quot;, CN=Tesla Public RSA TLS Issuing CA 2024</td><td>2026-01-06T23:59:59</td><td>-121</td><td>zpra.tesla.com, zpra.tesla.com</td></tr>
+<tr><td>15757612065</td><td>C=US, O=Let&#x27;s Encrypt, CN=E5</td><td>2025-03-03T09:13:32</td><td>-431</td><td>energysupport.tesla.com</td></tr>
+<tr><td>14935519021</td><td>C=US, O=Amazon, CN=Amazon RSA 2048 M02</td><td>2025-11-14T23:59:59</td><td>-174</td><td>lighthouse.tesla.com, lighthouse.tesla.com</td></tr>
+<tr><td>14889579818</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-10-29T23:59:59</td><td>-190</td><td>logs.tesla.com, logs.tesla.com, logs.tesla.com</td></tr>
+<tr><td>14874516146</td><td>C=US, O=Let&#x27;s Encrypt, CN=R11</td><td>2025-01-08T10:40:21</td><td>-485</td><td>digitalassets-contents.tesla.com, digitalassets-stage.tesla.com</td></tr>
+<tr><td>14686520935</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-09-24T23:59:59</td><td>-225</td><td>e382p434p572c.tesla.com, c382p434p572c.tesla.com, e382p434p572c.tesla.com</td></tr>
+<tr><td>14660919014</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-09-23T23:59:59</td><td>-226</td><td>dex.ops.vs-bnc.na.vn.cloud.tesla.com, dex.ops.vs-bnc.na.vn.cloud.tesla.com</td></tr>
+<tr><td>14575052415</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-09-15T23:59:59</td><td>-234</td><td>cssp-dev-teleport-proxy.tesla.com, cssp-dev-teleport-proxy.tesla.com</td></tr>
+<tr><td>14084426438</td><td>C=US, O=Amazon, CN=Amazon RSA 2048 M02</td><td>2025-09-10T23:59:59</td><td>-239</td><td>billing.tesla.com, billing.tesla.com</td></tr>
+<tr><td>14084247775</td><td>C=US, O=Amazon, CN=Amazon RSA 2048 M02</td><td>2025-09-10T23:59:59</td><td>-239</td><td>monitoring.tesla.com, monitoring.tesla.com</td></tr>
+<tr><td>14083639832</td><td>C=US, O=Amazon, CN=Amazon RSA 2048 M02</td><td>2025-09-10T23:59:59</td><td>-239</td><td>monitoring-eu.tesla.com, monitoring-eu.tesla.com</td></tr>
+<tr><td>13840707936</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-07-21T23:59:59</td><td>-290</td><td>signaling-ap-api.eng.vn.cloud.tesla.com, signaling-ap-api.eng.vn.cloud.tesla.com</td></tr>
+<tr><td>13785272427</td><td>C=US, O=Amazon, CN=Amazon RSA 2048 M02</td><td>2025-08-17T23:59:59</td><td>-263</td><td>app.tesla.com, app.tesla.com</td></tr>
+<tr><td>13507725117</td><td>C=US, O=Amazon, CN=Amazon RSA 2048 M03</td><td>2025-07-25T23:59:59</td><td>-286</td><td>learning-apac.tesla.com, learning-apac-stg.tesla.com, learning-apac.tesla.com</td></tr>
+<tr><td>12921233148</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-04-30T23:59:59</td><td>-372</td><td>citiapisslsandboxv4.tesla.com, citiapisslsandboxv4.tesla.com</td></tr>
+<tr><td>12921226041</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-04-30T23:59:59</td><td>-372</td><td>citiapiencsandboxv4.tesla.com, citiapiencsandboxv4.tesla.com</td></tr>
+<tr><td>12678713078</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-04-09T23:59:59</td><td>-393</td><td>payx-citiapi-prod.tesla.com, payx-citiapi-prod.tesla.com</td></tr>
+<tr><td>12363415494</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-04-13T23:59:59</td><td>-389</td><td>citiapisslprodv4.tesla.com, citiapisslprodv4.tesla.com</td></tr>
+<tr><td>12363406284</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-04-13T23:59:59</td><td>-389</td><td>citiapiencprodv4.tesla.com, citiapiencprodv4.tesla.com</td></tr>
+<tr><td>12295272779</td><td>C=US, O=Amazon, CN=Amazon RSA 2048 M03</td><td>2025-04-04T23:59:59</td><td>-398</td><td>ai-api-stg.tesla.com, ai-api-stg.tesla.com, ai-api-uat.tesla.com</td></tr>
+<tr><td>12057640655</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-02-11T23:59:59</td><td>-450</td><td>mobile-links-cdn.prd.vn.cloud.tesla.com, mobile-links-cdn.prd.vn.cloud.tesla.com</td></tr>
+<tr><td>12057627766</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-02-11T23:59:59</td><td>-450</td><td>mobile-links-cdn.eng.vn.cloud.tesla.com, mobile-links-cdn.eng.vn.cloud.tesla.com</td></tr>
+<tr><td>11954392469</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-02-04T23:59:59</td><td>-457</td><td>dal11-gpgw1.tesla.com, bom01-gpgw1.tesla.com, dal11-gpgw1.tesla.com, hnd13-gpgw1.tesla.com, syd14-gpgw1.tesla.com</td></tr>
+<tr><td>11948265773</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-02-04T23:59:59</td><td>-457</td><td>sjc36-gpgw1.tesla.com, ams13-gpgw1.tesla.com, fra05-gpgw1.tesla.com, lax32-gpgw1.tesla.com, sin05-gpgw1.tesla.com, sjc36-gpgw1.tesla.com</td></tr>
+<tr><td>11948257997</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-02-04T23:59:59</td><td>-457</td><td>ion.tesla.com, ion.tesla.com</td></tr>
+<tr><td>11943517992</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-01-31T23:59:59</td><td>-461</td><td>iad05-gpgw1.tesla.com, iad05-gpgw1.tesla.com</td></tr>
+<tr><td>11943449547</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-01-31T23:59:59</td><td>-461</td><td>vpn.tesla.com, vpn.tesla.com</td></tr>
+<tr><td>11943081612</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-01-31T23:59:59</td><td>-461</td><td>na.logs.tesla.com, na.logs.tesla.com</td></tr>
+<tr><td>11942986231</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-01-31T23:59:59</td><td>-461</td><td>eu.logs.tesla.com, eu.logs.tesla.com</td></tr>
+<tr><td>11941009999</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-01-31T23:59:59</td><td>-461</td><td>apac.logs.tesla.com, apac.logs.tesla.com</td></tr>
+<tr><td>11918416164</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2025-03-01T23:59:59</td><td>-432</td><td>vpn3.tesla.com, vpn3.tesla.com</td></tr>
+<tr><td>11918226767</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-03-01T23:59:59</td><td>-432</td><td>vpn1.tesla.com, vpn1.tesla.com</td></tr>
+<tr><td>11714928614</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2024-03-30T23:59:59</td><td>-768</td><td>citiapiencpocv2.tesla.com, citiapiencpocv2.tesla.com, citiapiencpocv3.tesla.com</td></tr>
+<tr><td>11714875419</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2024-03-30T23:59:59</td><td>-768</td><td>citiapisslpocv2.tesla.com, citiapisslpocv2.tesla.com, citiapisslpocv3.tesla.com</td></tr>
+<tr><td>11609888935</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2025-01-02T23:59:59</td><td>-490</td><td>track.tesla.com, track.tesla.com</td></tr>
+<tr><td>11574403261</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2025-01-22T23:59:59</td><td>-470</td><td>apacvpn2.tesla.com, apacvpn2.tesla.com</td></tr>
+<tr><td>11574233468</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2025-01-22T23:59:59</td><td>-470</td><td>apacvpn1.tesla.com, apacvpn1.tesla.com</td></tr>
+<tr><td>11435081116</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2024-07-09T23:59:59</td><td>-667</td><td>akamai-apigateway-vehicleextinfogw-prdsvc-st.tesla.com, akamai-apigateway-vehicleextinfogw-prdsvc-st.tesla.com, akamai-apigateway-vehicleextinfogw-stgsvc-st.tesla.com, logcollector-ext.tesla.com, logtransit-ext.tesla.com</td></tr>
+<tr><td>11262397744</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2024-12-03T23:59:59</td><td>-520</td><td>secureaccess.tesla.com, secureaccess.tesla.com</td></tr>
+<tr><td>11018305023</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-11-10T23:59:59</td><td>-909</td><td>apacvpn.tesla.com, apacvpn.tesla.com</td></tr>
+<tr><td>11010129444</td><td>C=US, O=Amazon, CN=Amazon RSA 2048 M02</td><td>2024-12-05T23:59:59</td><td>-518</td><td>solarbonds.tesla.com, solarbonds.tesla.com</td></tr>
+<tr><td>10970002533</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2024-11-05T23:59:59</td><td>-548</td><td>citibankstatementsha512.tesla.com, citibankstatementsha512.tesla.com</td></tr>
+<tr><td>10897564478</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2024-10-24T23:59:59</td><td>-560</td><td>raultest.tesla.com, raultest.tesla.com</td></tr>
+<tr><td>10740904383</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2024-10-10T23:59:59</td><td>-574</td><td>cyberbeer.tesla.com, cyberbeer.tesla.com</td></tr>
+<tr><td>10705469423</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2024-10-16T23:59:59</td><td>-568</td><td>cnvpn1.tesla.com, cnvpn1.tesla.com</td></tr>
+<tr><td>10373213014</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2024-01-12T23:59:59</td><td>-846</td><td>citiapisslpocv2.tesla.com, citiapisslpocv2.tesla.com</td></tr>
+<tr><td>10373201303</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2024-01-12T23:59:59</td><td>-846</td><td>citiapiencpocv2.tesla.com, citiapiencpocv2.tesla.com</td></tr>
+<tr><td>10203221859</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2023-09-15T23:59:59</td><td>-965</td><td>citiapisslpoc.tesla.com, citiapisslpoc.tesla.com</td></tr>
+<tr><td>10203212317</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2023-09-15T23:59:59</td><td>-965</td><td>citiapiencpoc.tesla.com, citiapiencpoc.tesla.com</td></tr>
+<tr><td>9984755765</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2024-07-24T23:59:59</td><td>-652</td><td>dgf.tesla.com, dgf.tesla.com</td></tr>
+<tr><td>9984685763</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-08-08T23:59:59</td><td>-1003</td><td>teslatequila.tesla.com, teslatequila.tesla.com</td></tr>
+<tr><td>9874311823</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2024-07-09T23:59:59</td><td>-667</td><td>akamai-apigateway-vehicleextinfogw-prdsvc-st.tesla.com, akamai-apigateway-vehicleextinfogw-prdsvc-st.tesla.com, akamai-apigateway-vehicleextinfogw-stgsvc-st.tesla.com, logcollector-ext.tesla.com</td></tr>
+<tr><td>9858500604</td><td>C=BE, O=GlobalSign nv-sa, CN=GlobalSign Atlas R3 DV TLS CA 2023 Q2</td><td>2024-08-08T20:23:05</td><td>-637</td><td>digitalassets-stage.tesla.com, digitalassets-stage.tesla.com</td></tr>
+<tr><td>9596705894</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2024-06-25T23:59:59</td><td>-681</td><td>vpn2.tesla.com, vpn2.tesla.com</td></tr>
+<tr><td>9573854419</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2023-07-05T23:59:59</td><td>-1037</td><td>openadrclient.tesla.com, openadrclient.tesla.com</td></tr>
+<tr><td>9254833573</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2024-05-28T23:59:59</td><td>-709</td><td>cnvpn.tesla.com, cnvpn.tesla.com</td></tr>
+<tr><td>8951855340</td><td>C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1</td><td>2024-03-20T23:59:59</td><td>-778</td><td>gigabier.tesla.com, gigabier.tesla.com</td></tr>
+<tr><td>8734342375</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2024-02-28T23:59:59</td><td>-799</td><td>fleetview.fn.tesla.com, fleetview.fn.tesla.com, fleetview.prd.eu.fn.tesla.com, fleetview.prd.euw1.fn.tesla.com, fleetview.prd.na.fn.tesla.com, fleetview.prd.usw2.fn.tesla.com</td></tr>
+<tr><td>8618598269</td><td>C=US, O=Amazon, CN=Amazon RSA 2048 M02</td><td>2023-10-05T23:59:59</td><td>-945</td><td>cxengine-apac-stg.tesla.com, cxengine-apac-stg.tesla.com</td></tr>
+<tr><td>8617757577</td><td>C=US, O=Amazon, CN=Amazon RSA 2048 M01</td><td>2023-10-05T23:59:59</td><td>-945</td><td>cxengine-apac.tesla.com, cxengine-apac.tesla.com</td></tr>
+<tr><td>8559695405</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2024-03-04T23:59:59</td><td>-794</td><td>api-account-master.tesla.com, api-account-master.tesla.com</td></tr>
+<tr><td>8537027918</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2024-02-20T23:59:59</td><td>-807</td><td>github-ap.tesla.com, assets.github-ap.tesla.com, avatars.github-ap.tesla.com, codeload.github-ap.tesla.com, docker.github-ap.tesla.com, gist.github-ap.tesla.com, github-ap.tesla.com, maven.github-ap.tesla.com, media.github-ap.tesla.com, notebook.github-ap.tesla.com, npm.github-ap.tesla.com, nuget.github-ap.tesla.com, pages.github-ap.tesla.com, raw.github-ap.tesla.com, render.github-ap.tesla.com, reply.github-ap.tesla.com, rubygems.github-ap.tesla.com, uploads.github-ap.tesla.com, viewscreen.github-ap.tesla.com</td></tr>
+<tr><td>8536986171</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2024-02-20T23:59:59</td><td>-807</td><td>github-fw.tesla.com, assets.github-fw.tesla.com, avatars.github-fw.tesla.com, codeload.github-fw.tesla.com, docker.github-fw.tesla.com, gist.github-fw.tesla.com, github-fw.tesla.com, maven.github-fw.tesla.com, media.github-fw.tesla.com, notebook.github-fw.tesla.com, npm.github-fw.tesla.com, nuget.github-fw.tesla.com, pages.github-fw.tesla.com, raw.github-fw.tesla.com, render.github-fw.tesla.com, reply.github-fw.tesla.com, rubygems.github-fw.tesla.com, uploads.github-fw.tesla.com, viewscreen.github-fw.tesla.com</td></tr>
+<tr><td>8536890440</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2024-01-23T23:59:59</td><td>-835</td><td>github-it.tesla.com, assets.github-it.tesla.com, avatars.github-it.tesla.com, codeload.github-it.tesla.com, docker.github-it.tesla.com, gist.github-it.tesla.com, github-it.tesla.com, maven.github-it.tesla.com, media.github-it.tesla.com, notebook.github-it.tesla.com, npm.github-it.tesla.com, nuget.github-it.tesla.com, pages.github-it.tesla.com, raw.github-it.tesla.com, render.github-it.tesla.com, reply.github-it.tesla.com, rubygems.github-it.tesla.com, uploads.github-it.tesla.com, viewscreen.github-it.tesla.com</td></tr>
+<tr><td>8503611004</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2024-01-23T23:59:59</td><td>-835</td><td>github-it.tesla.com, assets.github-it.tesla.com, avatars.github-it.tesla.com, codeload.github-it.tesla.com, docker.github-it.tesla.com, gist.github-it.tesla.com, github-it.tesla.com, maven.github-it.tesla.com, media.github-it.tesla.com, npm.github-it.tesla.com, nuget.github-it.tesla.com, pages.github-it.tesla.com, raw.github-it.tesla.com, render.github-it.tesla.com, reply.github-it.tesla.com, rubygems.github-it.tesla.com, uploads.github-it.tesla.com</td></tr>
+<tr><td>8486919961</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2024-02-20T23:59:59</td><td>-807</td><td>github-fw.tesla.com, assets.github-fw.tesla.com, avatars.github-fw.tesla.com, codeload.github-fw.tesla.com, docker.github-fw.tesla.com, gist.github-fw.tesla.com, github-fw.tesla.com, maven.github-fw.tesla.com, media.github-fw.tesla.com, npm.github-fw.tesla.com, nuget.github-fw.tesla.com, pages.github-fw.tesla.com, raw.github-fw.tesla.com, render.github-fw.tesla.com, reply.github-fw.tesla.com, rubygems.github-fw.tesla.com, uploads.github-fw.tesla.com</td></tr>
+<tr><td>8486901013</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2024-02-20T23:59:59</td><td>-807</td><td>github-ap.tesla.com, assets.github-ap.tesla.com, avatars.github-ap.tesla.com, codeload.github-ap.tesla.com, docker.github-ap.tesla.com, gist.github-ap.tesla.com, github-ap.tesla.com, maven.github-ap.tesla.com, media.github-ap.tesla.com, npm.github-ap.tesla.com, nuget.github-ap.tesla.com, pages.github-ap.tesla.com, raw.github-ap.tesla.com, render.github-ap.tesla.com, reply.github-ap.tesla.com, rubygems.github-ap.tesla.com, uploads.github-ap.tesla.com</td></tr>
+<tr><td>8558706750</td><td>C=US, O=Let&#x27;s Encrypt, CN=R3</td><td>2023-04-23T19:46:05</td><td>-1110</td><td>referral.tesla.com, referral.tesla.com</td></tr>
+<tr><td>8394772104</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-10-24T23:59:59</td><td>-926</td><td>gf.tesla.com, ca.tesla.com, ca.tesla.com, cn.tesla.com, cn.tesla.com, de.tesla.com, de.tesla.com, gf.tesla.com, gf.tesla.com, nv.tesla.com, nv.tesla.com, ny.tesla.com, ny.tesla.com, tx.tesla.com, tx.tesla.com</td></tr>
+<tr><td>8378008322</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2024-01-10T23:59:59</td><td>-848</td><td>fleetview.prd.europe.vn.cloud.tesla.com, fleetview.prd.europe.vn.cloud.tesla.com</td></tr>
+<tr><td>8377991238</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2024-01-10T23:59:59</td><td>-848</td><td>fleetview.prd.america.vn.cloud.tesla.com, fleetview.prd.america.vn.cloud.tesla.com</td></tr>
+<tr><td>8311166330</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2024-01-03T23:59:59</td><td>-855</td><td>acme-sentry-4.eng.use1.vn.cloud.tesla.com, acme-sentry-4.eng.use1.vn.cloud.tesla.com</td></tr>
+<tr><td>8255488999</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-12-20T23:59:59</td><td>-869</td><td>acme-sentry-4a.eng.use1.vn.cloud.tesla.com, acme-sentry-4a.eng.use1.vn.cloud.tesla.com</td></tr>
+<tr><td>8232822136</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-12-19T23:59:59</td><td>-870</td><td>akamai-apigateway-vehicleextinfogw-prdsvc-st.tesla.com, akamai-apigateway-vehicleextinfogw-prdsvc-st.tesla.com, akamai-apigateway-vehicleextinfogw-stgsvc-st.tesla.com</td></tr>
+<tr><td>7983638827</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-11-16T23:59:59</td><td>-903</td><td>toolbox.tesla.com, api-toolbox.tesla.com, toolbox.tesla.com</td></tr>
+<tr><td>7974183630</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-11-07T23:59:59</td><td>-912</td><td>paymentrecon-stage.tesla.com, paymentrecon-stage.tesla.com</td></tr>
+<tr><td>7923686576</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-11-07T23:59:59</td><td>-912</td><td>paymentrecon.tesla.com, paymentrecon.tesla.com</td></tr>
+<tr><td>7880589192</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-11-01T23:59:59</td><td>-918</td><td>cradlepointtest01.tesla.com, cradlepointtest01.tesla.com</td></tr>
+<tr><td>7129925210</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-07-18T23:59:59</td><td>-1024</td><td>dev.kronosdb.tesla.com, dev.kronosdb.tesla.com</td></tr>
+<tr><td>7129923277</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-07-18T23:59:59</td><td>-1024</td><td>api.kronos.tesla.com, api.kronos.tesla.com</td></tr>
+<tr><td>6860086568</td><td>C=US, O=&quot;Cloudflare, Inc.&quot;, CN=Cloudflare Inc ECC CA-3</td><td>2023-06-02T23:59:59</td><td>-1070</td><td>forums.tesla.com, forums.tesla.com</td></tr>
+<tr><td>6841792034</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-05-04T23:59:59</td><td>-1099</td><td>mobile-ops-links.prd.vn.cloud.tesla.com, mobile-ops-links.prd.vn.cloud.tesla.com</td></tr>
+<tr><td>6834876624</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-05-04T23:59:59</td><td>-1099</td><td>mobile-links.prd.vn.cloud.tesla.com, mobile-links.prd.vn.cloud.tesla.com</td></tr>
+<tr><td>6806500065</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-05-26T23:59:59</td><td>-1077</td><td>smt.tesla.com, smt.tesla.com</td></tr>
+<tr><td>6795710550</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-05-24T23:59:59</td><td>-1079</td><td>owner-api.eng.vn.cloud.tesla.com, owner-api.eng.vn.cloud.tesla.com</td></tr>
+<tr><td>6702185312</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-04-25T23:59:59</td><td>-1108</td><td>ny.tesla.com, ny.tesla.com, ny.tesla.com</td></tr>
+<tr><td>6624317875</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-04-29T23:59:59</td><td>-1104</td><td>vehicle-files.prd.vn.cloud.tesla.com, vehicle-files.prd.vn.cloud.tesla.com</td></tr>
+<tr><td>6624300902</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-04-29T23:59:59</td><td>-1104</td><td>vehicle-files.eng.vn.cloud.tesla.com, vehicle-files.eng.vn.cloud.tesla.com</td></tr>
+<tr><td>6553930219</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-04-09T23:59:59</td><td>-1124</td><td>view.emails.tesla.com, view.emails.tesla.com</td></tr>
+<tr><td>6360097680</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-03-21T23:59:59</td><td>-1143</td><td>githubmirror.tesla.com, githubmirror.tesla.com</td></tr>
+<tr><td>6360092556</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-03-21T23:59:59</td><td>-1143</td><td>githubmirrorber02.tesla.com, githubmirrorber02.tesla.com</td></tr>
+<tr><td>6360089019</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-03-21T23:59:59</td><td>-1143</td><td>githubmirroraus08.tesla.com, githubmirroraus08.tesla.com</td></tr>
+<tr><td>6355590198</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-04-16T23:59:59</td><td>-1117</td><td>sso-sandbox.tesla.com, sso-sandbox.tesla.com</td></tr>
+<tr><td>6343209670</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-04-09T23:59:59</td><td>-1124</td><td>events.tesla.com, events.tesla.com</td></tr>
+<tr><td>6331934171</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-04-09T23:59:59</td><td>-1124</td><td>click.emails.tesla.com, click.emails.tesla.com</td></tr>
+<tr><td>6331934208</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-04-09T23:59:59</td><td>-1124</td><td>marketing.tesla.com, marketing.tesla.com</td></tr>
+<tr><td>6281307031</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-03-07T23:59:59</td><td>-1157</td><td>github.tesla.com, assets.github.tesla.com, avatars.github.tesla.com, codeload.github.tesla.com, docker.github.tesla.com, gist.github.tesla.com, github.tesla.com, maven.github.tesla.com, media.github.tesla.com, npm.github.tesla.com, nuget.github.tesla.com, pages.github.tesla.com, raw.github.tesla.com, render.github.tesla.com, reply.github.tesla.com, rubygems.github.tesla.com, uploads.github.tesla.com</td></tr>
+<tr><td>6233170220</td><td>C=US, O=Let&#x27;s Encrypt, CN=R3</td><td>2022-05-24T21:20:47</td><td>-1444</td><td>digitalassets-energy.tesla.com, digitalassets-learning.tesla.com, digitalassets-shop.tesla.com, digitalassets.tesla.com</td></tr>
+<tr><td>6226298761</td><td>C=US, O=Let&#x27;s Encrypt, CN=R3</td><td>2022-05-23T16:58:22</td><td>-1446</td><td>cryptopay4.tesla.com, cryptopay4.tesla.com</td></tr>
+<tr><td>6087465994</td><td>C=BE, O=GlobalSign nv-sa, CN=GlobalSign Atlas R3 DV TLS CA 2022 Q1</td><td>2023-03-05T17:33:03</td><td>-1160</td><td>digitalassets-learning.tesla.com, digitalassets-learning.tesla.com</td></tr>
+<tr><td>6055132510</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-01-26T23:59:59</td><td>-1197</td><td>kronos-dev.tesla.com, kronos-dev.tesla.com</td></tr>
+<tr><td>6023043136</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-01-21T23:59:59</td><td>-1202</td><td>github-it.tesla.com, github-it.tesla.com, pages.github-it.tesla.com</td></tr>
+<tr><td>5885250637</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2023-01-03T23:59:59</td><td>-1220</td><td>kronosdb.tesla.com, kronosdb.tesla.com</td></tr>
+<tr><td>5840032493</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2022-12-21T23:59:59</td><td>-1233</td><td>ca.tesla.com, ca.tesla.com, ca.tesla.com, cn.tesla.com, cn.tesla.com, de.tesla.com, de.tesla.com, nv.tesla.com, nv.tesla.com, ny.tesla.com, ny.tesla.com, tx.tesla.com, tx.tesla.com</td></tr>
+<tr><td>5810489474</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2022-12-16T23:59:59</td><td>-1238</td><td>kronos.tesla.com, integration.kronos.tesla.com, kronos.tesla.com, mobile.kronos.tesla.com, wdm.kronos.tesla.com, wim.kronos.tesla.com</td></tr>
+<tr><td>5803982476</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2022-12-15T23:59:59</td><td>-1239</td><td>kronos.tesla.com, integration.kronos.tesla.com, kronos.tesla.com, mobile.kronos.tesla.com</td></tr>
+<tr><td>5548808492</td><td>C=US, O=Amazon, OU=Server CA 1B, CN=Amazon</td><td>2022-09-05T23:59:59</td><td>-1340</td><td>ug.tesla.com, ug.tesla.com, www.ug.tesla.com</td></tr>
+<tr><td>5078414122</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2022-08-20T23:59:59</td><td>-1356</td><td>github.tesla.com, github.tesla.com, github.tesla.com</td></tr>
+<tr><td>4993505263</td><td>C=US, O=Amazon, OU=Server CA 1B, CN=Amazon</td><td>2022-06-25T23:59:59</td><td>-1412</td><td>ug.tesla.com, ug.tesla.com</td></tr>
+<tr><td>4206448507</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2022-03-23T23:59:59</td><td>-1506</td><td>employee-teslatequila.tesla.com, employee-teslatequila.tesla.com</td></tr>
+<tr><td>4154101049</td><td>C=US, O=Let&#x27;s Encrypt, CN=R3</td><td>2021-05-31T20:38:44</td><td>-1802</td><td>lionpayshare.tesla.com, lionpayshare.tesla.com</td></tr>
+<tr><td>4154093220</td><td>C=US, O=Let&#x27;s Encrypt, CN=R3</td><td>2021-05-31T20:35:27</td><td>-1802</td><td>lionshare.tesla.com, lionshare.tesla.com</td></tr>
+<tr><td>4114243288</td><td>C=US, O=Let&#x27;s Encrypt, CN=R3</td><td>2021-05-23T01:34:56</td><td>-1811</td><td>lionpaytest.tesla.com, lionpaytest.tesla.com</td></tr>
+<tr><td>4095820312</td><td>C=US, O=Let&#x27;s Encrypt, CN=R3</td><td>2021-05-18T22:53:46</td><td>-1815</td><td>bctpay.tesla.com, bctpay.tesla.com</td></tr>
+<tr><td>4092817646</td><td>C=US, O=Let&#x27;s Encrypt, CN=R3</td><td>2021-05-18T07:01:59</td><td>-1816</td><td>awsbtest.tesla.com, awsbtest.tesla.com</td></tr>
+<tr><td>4087355662</td><td>C=US, O=Let&#x27;s Encrypt, CN=R3</td><td>2021-05-17T02:26:21</td><td>-1817</td><td>pilot-bpay.tesla.com, pilot-bpay.tesla.com</td></tr>
+<tr><td>3816766649</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2022-01-22T23:59:59</td><td>-1566</td><td>factory-berlin.tesla.com, factory-berlin.tesla.com, factory-berlin.tesla.com</td></tr>
+<tr><td>3799810038</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2022-01-18T23:59:59</td><td>-1570</td><td>studio.courses.tesla.com, studio.courses.tesla.com</td></tr>
+<tr><td>3799673040</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2022-01-18T23:59:59</td><td>-1570</td><td>studio.sandbox-courses.tesla.com, studio.sandbox-courses.tesla.com</td></tr>
+<tr><td>3799637397</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2022-01-18T23:59:59</td><td>-1570</td><td>manager.courses.tesla.com, manager.courses.tesla.com, manager.courses.tesla.com</td></tr>
+<tr><td>3718946227</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2021-12-31T23:59:59</td><td>-1588</td><td>autobidder-eng.powerhub.energy.tesla.com, autobidder-eng.powerhub.energy.tesla.com</td></tr>
+<tr><td>3718943820</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2021-12-31T23:59:59</td><td>-1588</td><td>gridlogic-eng.energy.tesla.com, gridlogic-eng.energy.tesla.com</td></tr>
+<tr><td>3640277520</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2021-12-13T23:59:59</td><td>-1606</td><td>gridlogic.powerhub.energy.tesla.com, gridlogic.powerhub.energy.tesla.com</td></tr>
+<tr><td>3640262199</td><td>C=US, O=DigiCert Inc, CN=DigiCert TLS RSA SHA256 2020 CA1</td><td>2021-12-13T23:59:59</td><td>-1606</td><td>autobidder.powerhub.energy.tesla.com, autobidder.powerhub.energy.tesla.com</td></tr>
+<tr><td>3410494484</td><td>C=US, O=Let&#x27;s Encrypt, CN=Let&#x27;s Encrypt Authority X3</td><td>2020-12-20T19:25:58</td><td>-1964</td><td>ir.tesla.com</td></tr>
+<tr><td>3355811084</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 High Assurance Server CA</td><td>2021-09-13T12:00:00</td><td>-1698</td><td>sandbox-studio.courses.tesla.com, sandbox-studio.courses.tesla.com, www.sandbox-studio.courses.tesla.com</td></tr>
+<tr><td>3338307254</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 High Assurance Server CA</td><td>2021-09-09T12:00:00</td><td>-1702</td><td>sandbox-manager.courses.tesla.com, sandbox-manager.courses.tesla.com, sandbox-manager.courses.tesla.com</td></tr>
+<tr><td>3303919494</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 High Assurance Server CA</td><td>2021-09-02T12:00:00</td><td>-1709</td><td>toolbox-beta.tesla.com, toolbox-beta.tesla.com</td></tr>
+<tr><td>3282618342</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=GeoTrust RSA CA 2018</td><td>2021-09-01T12:00:00</td><td>-1710</td><td>image.emails.tesla.com, my.tesla.com, static.tesla.com, www.tesla.com</td></tr>
+<tr><td>3187112764</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 High Assurance Server CA</td><td>2022-08-08T12:00:00</td><td>-1369</td><td>teslatequila.tesla.com, teslatequila.tesla.com, www.teslatequila.tesla.com</td></tr>
+<tr><td>3167757260</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 High Assurance Server CA</td><td>2022-08-04T12:00:00</td><td>-1373</td><td>toolbox.tesla.com, toolbox.tesla.com, www.toolbox.tesla.com</td></tr>
+<tr><td>3119923137</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 High Assurance Server CA</td><td>2022-07-26T12:00:00</td><td>-1382</td><td>teslaquila.tesla.com, teslaquila.tesla.com, www.teslaquila.tesla.com</td></tr>
+<tr><td>3036236014</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 High Assurance Server CA</td><td>2021-06-30T12:00:00</td><td>-1773</td><td>powerhub.energy.tesla.com, powerhub.energy.tesla.com, www.powerhub.energy.tesla.com</td></tr>
+<tr><td>2938239931</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 High Assurance Server CA</td><td>2022-09-14T00:00:00</td><td>-1332</td><td>sso-sig.tesla.com, sso-sig.tesla.com</td></tr>
+<tr><td>2938232785</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 High Assurance Server CA</td><td>2022-09-14T00:00:00</td><td>-1332</td><td>sso-dec.tesla.com, sso-dec.tesla.com</td></tr>
+<tr><td>2902100831</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=GeoTrust RSA CA 2018</td><td>2021-09-01T12:00:00</td><td>-1710</td><td>my.tesla.com, static.tesla.com, www.tesla.com</td></tr>
+<tr><td>2781274078</td><td>C=US, O=DigiCert Inc, CN=DigiCert SHA2 Secure Server CA</td><td>2022-08-03T12:00:00</td><td>-1374</td><td>image.emails.tesla.com</td></tr>
+<tr><td>2674563983</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 High Assurance Server CA</td><td>2022-03-18T12:00:00</td><td>-1512</td><td>vpn1.tesla.com, vpn1.tesla.com, www.vpn1.tesla.com</td></tr>
+<tr><td>2499879244</td><td>C=US, O=Amazon, OU=Server CA 1B, CN=Amazon</td><td>2021-03-25T12:00:00</td><td>-1870</td><td>sca.tesla.com, sca.tesla.com</td></tr>
+<tr><td>2202468387</td><td>C=US, O=Let&#x27;s Encrypt, CN=Let&#x27;s Encrypt Authority X3</td><td>2020-02-29T00:00:26</td><td>-2260</td><td>appplayer.tesla.com, appplayer.tesla.com</td></tr>
+<tr><td>2100039904</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 High Assurance Server CA</td><td>2021-11-15T12:00:00</td><td>-1635</td><td>gridlogic.energy.tesla.com, gridlogic.energy.tesla.com, www.gridlogic.energy.tesla.com</td></tr>
+<tr><td>1023882478</td><td>C=US, O=DigiCert Inc, CN=DigiCert SHA2 Secure Server CA</td><td>2021-01-03T12:00:00</td><td>-1951</td><td>feedback.tesla.com</td></tr>
+<tr><td>987566839</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 High Assurance Server CA</td><td>2020-12-03T12:00:00</td><td>-1982</td><td>gridlogic-eng.powerhub.energy.tesla.com, gridlogic-eng.powerhub.energy.tesla.com</td></tr>
+<tr><td>908053440</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 High Assurance Server CA</td><td>2020-11-04T12:00:00</td><td>-2011</td><td>ciscoguest.tesla.com, ciscoguest.tesla.com</td></tr>
+<tr><td>746869506</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 High Assurance Server CA</td><td>2020-07-14T12:00:00</td><td>-2124</td><td>powerhub.energy.tesla.com, powerhub.energy.tesla.com</td></tr>
+<tr><td>321231736</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 High Assurance Server CA</td><td>2017-06-20T12:00:00</td><td>-3244</td><td>rumipv6.tesla.com</td></tr>
+<tr><td>320694459</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 High Assurance Server CA</td><td>2017-12-20T12:00:00</td><td>-3061</td><td>mfa-dev.tesla.com, mfa-dev.tesla.com, mfamobile-dev.tesla.com, mfauser-dev.tesla.com, sso-dev.tesla.com</td></tr>
+<tr><td>319761245</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 High Assurance Server CA</td><td>2017-05-17T12:00:00</td><td>-3278</td><td>sling.tesla.com, dev.tesla.com, eumirror.tesla.com, mirror.tesla.com, new-dev.tesla.com, new.tesla.com, qa.tesla.com, sling.tesla.com, stage.tesla.com, www45.tesla.com, www-dev.tesla.com, www-stg2.tesla.com, www-test.tesla.com, www-uat2.tesla.com, www-uat.tesla.com</td></tr>
+<tr><td>42618127</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 High Assurance Server CA</td><td>2017-05-17T12:00:00</td><td>-3278</td><td>sling.tesla.com, dev.tesla.com, new-dev.tesla.com, new.tesla.com, sling.tesla.com, stage.tesla.com, www45.tesla.com, www-dev.tesla.com, www-stg2.tesla.com, www-test.tesla.com, www-uat2.tesla.com, www-uat.tesla.com</td></tr>
+<tr><td>20512027</td><td>C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 High Assurance Server CA</td><td>2018-05-11T12:00:00</td><td>-2919</td><td>resources.tesla.com, resources.tesla.com</td></tr>
+<tr><td>15389058</td><td>C=US, O=Symantec Corporation, OU=Symantec Trust Network, CN=Symantec Class 3 Secure Server CA - G4</td><td>2017-03-21T23:59:59</td><td>-3334</td><td>nas-origin.tesla.com, eua-origin.tesla.com, naa-origin.tesla.com, nas-origin.tesla.com</td></tr>
+<tr><td>13223401</td><td>C=US, O=Symantec Corporation, OU=Symantec Trust Network, CN=Symantec Class 3 Secure Server SHA256 SSL CA</td><td>2017-02-20T23:59:59</td><td>-3363</td><td>autodiscover.tesla.com, xmail.tesla.com</td></tr>
+</table>
+  </div>
+</div>
+
+<div class="tool-section">
+  <div class="tool-header">
+    <span>Wayback</span>
+    <span class="status-badge status-completed">completed</span>
+  </div>
+  <div class="tool-content">
+
+<h3>📊 Archived URLs</h3><iframe class="recon-iframe" src="https://web.archive.org/cdx/search/cdx?url=*.tesla.com/*&amp;output=text&amp;fl=original&amp;collapse=urlkey"></iframe>
+  </div>
+</div>
+
+<div class="tool-section">
+  <div class="tool-header">
+    <span>Google Dorks</span>
+    <span class="status-badge status-completed">completed</span>
+  </div>
+  <div class="tool-content">
+
+
+<div class="stats-grid">
+  <div class="stat-card"><span class="number">104</span><span class="label">Unique Links Found</span></div>
+</div>
+<h3 style="margin:14px 0 8px">🔎 Dork Results</h3>
+
+<details><summary>Publicly Exposed Documents (9)</summary><ol style="margin:10px 16px">
+<li><a href="https://service.tesla.com/docs/ModelS/ElectricalReference2012/s-rhd-sop12/2019.1_ModelS-SOP12.pdf" target="_blank">https://service.tesla.com/docs/ModelS/ElectricalReference2012/s-rhd-sop12/2019.1_ModelS-SOP12.pdf</a></li>
+<li><a href="https://ir.tesla.com/_flysystem/s3/sec/000156459019003165/tsla-10k_20181231-gen_0.pdf" target="_blank">https://ir.tesla.com/_flysystem/s3/sec/000156459019003165/tsla-10k_20181231-gen_0.pdf</a></li>
+<li><a href="https://www.tesla.com/ns_videos/tesla-impact-report-2019.pdf" target="_blank">https://www.tesla.com/ns_videos/tesla-impact-report-2019.pdf</a></li>
+<li><a href="https://ir.tesla.com/_flysystem/s3/sec/000156459021004599/tsla-10k_20201231-gen.pdf" target="_blank">https://ir.tesla.com/_flysystem/s3/sec/000156459021004599/tsla-10k_20201231-gen.pdf</a></li>
+<li><a href="https://ir.tesla.com/_flysystem/s3/sec/000095017023001409/tsla-20221231-gen.pdf" target="_blank">https://ir.tesla.com/_flysystem/s3/sec/000095017023001409/tsla-20221231-gen.pdf</a></li>
+<li><a href="https://www.tesla.com/ns_videos/2021-tesla-impact-report.pdf" target="_blank">https://www.tesla.com/ns_videos/2021-tesla-impact-report.pdf</a></li>
+<li><a href="https://www.tesla.com/sites/default/files/downloads/TSLA-Q2-2025-Update.pdf" target="_blank">https://www.tesla.com/sites/default/files/downloads/TSLA-Q2-2025-Update.pdf</a></li>
+<li><a href="https://www.tesla.com/legal/additional-resources" target="_blank">https://www.tesla.com/legal/additional-resources</a></li>
+<li><a href="https://www.tesla.com/sites/default/files/pdfs/credit_application_terms_and_conditions_jc_3-31-2013.pdf" target="_blank">https://www.tesla.com/sites/default/files/pdfs/credit_application_terms_and_conditions_jc_3-31-2013.pdf</a></li>
+</ol></details>
+<details><summary>Configuration Files (2)</summary><ol style="margin:10px 16px">
+<li><a href="https://ir.tesla.com/_flysystem/s3/sec/000156459021004599/tsla-10k_20201231-gen.pdf" target="_blank">https://ir.tesla.com/_flysystem/s3/sec/000156459021004599/tsla-10k_20201231-gen.pdf</a></li>
+<li><a href="https://www.tesla.com/robots.txt" target="_blank">https://www.tesla.com/robots.txt</a></li>
+</ol></details>
+<details><summary>Database Files (1)</summary><ol style="margin:10px 16px">
+<li><a href="https://ir.tesla.com/_flysystem/s3/sec/000095017023001409/tsla-20221231-gen.pdf" target="_blank">https://ir.tesla.com/_flysystem/s3/sec/000095017023001409/tsla-20221231-gen.pdf</a></li>
+</ol></details>
+<details><summary>Log Files (10)</summary><ol style="margin:10px 16px">
+<li><a href="https://www.tesla.com/support/leasing/lease-end-options" target="_blank">https://www.tesla.com/support/leasing/lease-end-options</a></li>
+<li><a href="https://www.tesla.com/en_gb/support/pcp-tesla-loan-support" target="_blank">https://www.tesla.com/en_gb/support/pcp-tesla-loan-support</a></li>
+<li><a href="https://www.tesla.com/support/extended-service-agreement" target="_blank">https://www.tesla.com/support/extended-service-agreement</a></li>
+<li><a href="https://partners.tesla.com/" target="_blank">https://partners.tesla.com/</a></li>
+<li><a href="https://www.tesla.com/" target="_blank">https://www.tesla.com/</a></li>
+<li><a href="https://energylibrary.tesla.com/docs/Public/EnergyStorage/Powerwall/3/DeviceSetupGuide/en-au/GUID-46C00200-F272-49A8-A52E-69DEC338F875.html" target="_blank">https://energylibrary.tesla.com/docs/Public/EnergyStorage/Powerwall/3/DeviceSetupGuide/en-au/GUID-46C00200-F272-49A8-A52E-69DEC338F875.html</a></li>
+<li><a href="https://energylibrary.tesla.com/docs/Public/More/Powerhub/Residential/UserManual/en-us/GUID-C91CB9E0-8909-4440-8796-551470CE9539.html" target="_blank">https://energylibrary.tesla.com/docs/Public/More/Powerhub/Residential/UserManual/en-us/GUID-C91CB9E0-8909-4440-8796-551470CE9539.html</a></li>
+<li><a href="https://www.tesla.com/en_gb/powerwall" target="_blank">https://www.tesla.com/en_gb/powerwall</a></li>
+<li><a href="https://www.tesla.com/careers/search" target="_blank">https://www.tesla.com/careers/search</a></li>
+<li><a href="https://www.tesla.com/powerwall" target="_blank">https://www.tesla.com/powerwall</a></li>
+</ol></details>
+<details><summary>Login Pages (23)</summary><ol style="margin:10px 16px">
+<li><a href="https://accounts.tesla.com/password/forgot" target="_blank">https://accounts.tesla.com/password/forgot</a></li>
+<li><a href="https://ir.tesla.com/_flysystem/s3/sec/000156459021004599/tsla-10k_20201231-gen.pdf" target="_blank">https://ir.tesla.com/_flysystem/s3/sec/000156459021004599/tsla-10k_20201231-gen.pdf</a></li>
+<li><a href="https://powerhub.energy.tesla.com/" target="_blank">https://powerhub.energy.tesla.com/</a></li>
+<li><a href="https://workforce.tesla.com/wm" target="_blank">https://workforce.tesla.com/wm</a></li>
+<li><a href="https://www.tesla.com/legal/additional-resources" target="_blank">https://www.tesla.com/legal/additional-resources</a></li>
+<li><a href="https://sso.tesla.com/adfs/ls/?SAMLRequest=fZDBbsIwEER%2FJfIdME4lpFUSyW1ySNVSihGH3oxriaiOnXjXgvL1TeFCL73Pm6eZAnXvBpCJjn5rx2SRsr2N2AVfMjHnLGvrkjXhwXw2u%2Bbx6BVdDpf0bN4bNabxLKcAYrKtR9KeJoYLPuP5TIgdX0HOYbmaL0X%2BwbJz7zzC1VeyFD0EjR2C171FIANKvr7ApIQhBgomOFYVv2m4CuId%2Fz%2BuEW2kaQCrNtsalHoDGdNBry2dQvzCYnHXelMMsJ5q2noTXGe%2BM%2BlcOD1Fq8mWjGKybFHdqL9PVT8%3D&amp;RelayState=pg86YzW1exr6uu54rySWGOsspNhVVy" target="_blank">https://sso.tesla.com/adfs/ls/?SAMLRequest=fZDBbsIwEER%2FJfIdME4lpFUSyW1ySNVSihGH3oxriaiOnXjXgvL1TeFCL73Pm6eZAnXvBpCJjn5rx2SRsr2N2AVfMjHnLGvrkjXhwXw2u%2Bbx6BVdDpf0bN4bNabxLKcAYrKtR9KeJoYLPuP5TIgdX0HOYbmaL0X%2BwbJz7zzC1VeyFD0EjR2C171FIANKvr7ApIQhBgomOFYVv2m4CuId%2Fz%2BuEW2kaQCrNtsalHoDGdNBry2dQvzCYnHXelMMsJ5q2noTXGe%2BM%2BlcOD1Fq8mWjGKybFHdqL9PVT8%3D&amp;RelayState=pg86YzW1exr6uu54rySWGOsspNhVVy</a></li>
+<li><a href="https://www.tesla.com/teslaaccount/edit" target="_blank">https://www.tesla.com/teslaaccount/edit</a></li>
+<li><a href="https://www.tesla.com/en_nz/teslaaccount" target="_blank">https://www.tesla.com/en_nz/teslaaccount</a></li>
+<li><a href="https://partners.tesla.com/" target="_blank">https://partners.tesla.com/</a></li>
+<li><a href="https://auth.tesla.com/user/email/change/" target="_blank">https://auth.tesla.com/user/email/change/</a></li>
+<li><a href="https://energylibrary.tesla.com/docs/Public/More/Powerhub/Residential/UserManual/en-us/GUID-93782068-4EC1-4712-B04B-B83D6D0A3ECC.html" target="_blank">https://energylibrary.tesla.com/docs/Public/More/Powerhub/Residential/UserManual/en-us/GUID-93782068-4EC1-4712-B04B-B83D6D0A3ECC.html</a></li>
+<li><a href="https://workforce.tesla.com/" target="_blank">https://workforce.tesla.com/</a></li>
+<li><a href="https://energylibrary.tesla.com/docs/Public/EnergyStorage/Powerwall/3/DeviceSetupGuide/en-us/GUID-76245C1A-2274-43A7-80E5-1E2BCD9BED52.html" target="_blank">https://energylibrary.tesla.com/docs/Public/EnergyStorage/Powerwall/3/DeviceSetupGuide/en-us/GUID-76245C1A-2274-43A7-80E5-1E2BCD9BED52.html</a></li>
+<li><a href="https://www.tesla.com/en_gb" target="_blank">https://www.tesla.com/en_gb</a></li>
+<li><a href="https://ir.tesla.com/_flysystem/s3/sec/000095017023001409/tsla-20221231-gen.pdf" target="_blank">https://ir.tesla.com/_flysystem/s3/sec/000095017023001409/tsla-20221231-gen.pdf</a></li>
+<li><a href="https://www.tesla.com/teslaaccount" target="_blank">https://www.tesla.com/teslaaccount</a></li>
+<li><a href="https://developer.tesla.com/en_US/dashboard" target="_blank">https://developer.tesla.com/en_US/dashboard</a></li>
+<li><a href="https://www.tesla.com/ro_ro/teslaaccount" target="_blank">https://www.tesla.com/ro_ro/teslaaccount</a></li>
+<li><a href="https://developer.tesla.com/dashboard" target="_blank">https://developer.tesla.com/dashboard</a></li>
+<li><a href="https://auth.tesla.com/oauth2/v3/authorize?client_id=ownerapi&amp;code_challenge=-mQCp6yfAJWKOSGS43GXN9tGY5TFp6ftFwxd-waffXE&amp;code_challenge_method=S256&amp;locale=en-US&amp;prompt=login&amp;redirect_uri=https%3A%2F%2Fauth.tesla.com%2Fvoid%2Fcallback&amp;response_type=code&amp;scope=openid+email+offline_access&amp;state=dHdJRDhKN29CaE0z" target="_blank">https://auth.tesla.com/oauth2/v3/authorize?client_id=ownerapi&amp;code_challenge=-mQCp6yfAJWKOSGS43GXN9tGY5TFp6ftFwxd-waffXE&amp;code_challenge_method=S256&amp;locale=en-US&amp;prompt=login&amp;redirect_uri=https%3A%2F%2Fauth.tesla.com%2Fvoid%2Fcallback&amp;response_type=code&amp;scope=openid+email+offline_access&amp;state=dHdJRDhKN29CaE0z</a></li>
+<li><a href="https://service.tesla.com/" target="_blank">https://service.tesla.com/</a></li>
+<li><a href="https://auth.tesla.com/oauth2/v3/authorize?client_id=ownerapi&amp;code_challenge=Sr80WyvIYsN01hzg_xNDip4OuXrjuzn5fYyZntS6JiY&amp;code_challenge_method=S256&amp;locale=en-US&amp;prompt=login&amp;redirect_uri=https%3A%2F%2Fauth.tesla.com%2Fvoid%2Fcallback&amp;response_type=code&amp;scope=openid+email+offline_access&amp;state=UHRGWFNqN211dkto" target="_blank">https://auth.tesla.com/oauth2/v3/authorize?client_id=ownerapi&amp;code_challenge=Sr80WyvIYsN01hzg_xNDip4OuXrjuzn5fYyZntS6JiY&amp;code_challenge_method=S256&amp;locale=en-US&amp;prompt=login&amp;redirect_uri=https%3A%2F%2Fauth.tesla.com%2Fvoid%2Fcallback&amp;response_type=code&amp;scope=openid+email+offline_access&amp;state=UHRGWFNqN211dkto</a></li>
+<li><a href="https://www.tesla.com/developer-docs" target="_blank">https://www.tesla.com/developer-docs</a></li>
+</ol></details>
+<details><summary>Sensitive Keywords (19)</summary><ol style="margin:10px 16px">
+<li><a href="https://www.tesla.com/ownersmanual/modelx/en_kr/Owners_Manual.pdf" target="_blank">https://www.tesla.com/ownersmanual/modelx/en_kr/Owners_Manual.pdf</a></li>
+<li><a href="https://www.tesla.com/support" target="_blank">https://www.tesla.com/support</a></li>
+<li><a href="https://ir.tesla.com/_flysystem/s3/sec/000156459021004599/tsla-10k_20201231-gen.pdf" target="_blank">https://ir.tesla.com/_flysystem/s3/sec/000156459021004599/tsla-10k_20201231-gen.pdf</a></li>
+<li><a href="https://www.tesla.com/ownersmanual/cybertruck/en_us/Owners_Manual.pdf" target="_blank">https://www.tesla.com/ownersmanual/cybertruck/en_us/Owners_Manual.pdf</a></li>
+<li><a href="https://www.tesla.com/ownersmanual/modely/en_tw/Owners_Manual.pdf" target="_blank">https://www.tesla.com/ownersmanual/modely/en_tw/Owners_Manual.pdf</a></li>
+<li><a href="https://www.tesla.com/en_GB/user/password" target="_blank">https://www.tesla.com/en_GB/user/password</a></li>
+<li><a href="https://service.tesla.com/docs/Model3/ElectricalReference/prog-220/interactive/pdf/index_print.pdf" target="_blank">https://service.tesla.com/docs/Model3/ElectricalReference/prog-220/interactive/pdf/index_print.pdf</a></li>
+<li><a href="https://sso.tesla.com/adfs/ls/?SAMLRequest=fZDBbsIwEER%2FJfIdME4lpFUSyW1ySNVSihGH3oxriaiOnXjXgvL1TeFCL73Pm6eZAnXvBpCJjn5rx2SRsr2N2AVfMjHnLGvrkjXhwXw2u%2Bbx6BVdDpf0bN4bNabxLKcAYrKtR9KeJoYLPuP5TIgdX0HOYbmaL0X%2BwbJz7zzC1VeyFD0EjR2C171FIANKvr7ApIQhBgomOFYVv2m4CuId%2Fz%2BuEW2kaQCrNtsalHoDGdNBry2dQvzCYnHXelMMsJ5q2noTXGe%2BM%2BlcOD1Fq8mWjGKybFHdqL9PVT8%3D&amp;RelayState=pg86YzW1exr6uu54rySWGOsspNhVVy" target="_blank">https://sso.tesla.com/adfs/ls/?SAMLRequest=fZDBbsIwEER%2FJfIdME4lpFUSyW1ySNVSihGH3oxriaiOnXjXgvL1TeFCL73Pm6eZAnXvBpCJjn5rx2SRsr2N2AVfMjHnLGvrkjXhwXw2u%2Bbx6BVdDpf0bN4bNabxLKcAYrKtR9KeJoYLPuP5TIgdX0HOYbmaL0X%2BwbJz7zzC1VeyFD0EjR2C171FIANKvr7ApIQhBgomOFYVv2m4CuId%2Fz%2BuEW2kaQCrNtsalHoDGdNBry2dQvzCYnHXelMMsJ5q2noTXGe%2BM%2BlcOD1Fq8mWjGKybFHdqL9PVT8%3D&amp;RelayState=pg86YzW1exr6uu54rySWGOsspNhVVy</a></li>
+<li><a href="https://www.tesla.com/en_gb/support/financial-services-payment" target="_blank">https://www.tesla.com/en_gb/support/financial-services-payment</a></li>
+<li><a href="https://www.tesla.com/careers/search/job/internship-security-investigator-security-intelligence-summer-2026-264556" target="_blank">https://www.tesla.com/careers/search/job/internship-security-investigator-security-intelligence-summer-2026-264556</a></li>
+<li><a href="https://www.tesla.com/ownersmanual/models/en_tw/Owners_Manual.pdf" target="_blank">https://www.tesla.com/ownersmanual/models/en_tw/Owners_Manual.pdf</a></li>
+<li><a href="https://www.tesla.com/careers/search/job/hr-coordinator-vehicle-production-264161" target="_blank">https://www.tesla.com/careers/search/job/hr-coordinator-vehicle-production-264161</a></li>
+<li><a href="https://ir.tesla.com/_flysystem/s3/sec/000110465924059916/tm2413800d3_defa14a-gen.pdf" target="_blank">https://ir.tesla.com/_flysystem/s3/sec/000110465924059916/tm2413800d3_defa14a-gen.pdf</a></li>
+<li><a href="https://service.tesla.com/docs/ModelX/ElectricalReference2015/x-lhd-sop4/2016_ModelX_LHD_SOP4.pdf" target="_blank">https://service.tesla.com/docs/ModelX/ElectricalReference2015/x-lhd-sop4/2016_ModelX_LHD_SOP4.pdf</a></li>
+<li><a href="https://www.tesla.com/ownersmanual/model3/en_ph/Owners_Manual.pdf" target="_blank">https://www.tesla.com/ownersmanual/model3/en_ph/Owners_Manual.pdf</a></li>
+<li><a href="https://ir.tesla.com/_flysystem/s3/sec/000095017023001409/tsla-20221231-gen.pdf" target="_blank">https://ir.tesla.com/_flysystem/s3/sec/000095017023001409/tsla-20221231-gen.pdf</a></li>
+<li><a href="https://energylibrary.tesla.com/docs/Public/EnergyStorage/Powerwall/3/ServiceManual/en-us/index.html" target="_blank">https://energylibrary.tesla.com/docs/Public/EnergyStorage/Powerwall/3/ServiceManual/en-us/index.html</a></li>
+<li><a href="https://ir.tesla.com/_flysystem/s3/sec/000110465925090886/tm252289d16_defa14a-gen.pdf" target="_blank">https://ir.tesla.com/_flysystem/s3/sec/000110465925090886/tm252289d16_defa14a-gen.pdf</a></li>
+<li><a href="https://energylibrary.tesla.com/docs/Public/Solar/Retrofit/Datasheet/TeslaPanelMount/CatalogTeslaPanelMount.pdf" target="_blank">https://energylibrary.tesla.com/docs/Public/Solar/Retrofit/Datasheet/TeslaPanelMount/CatalogTeslaPanelMount.pdf</a></li>
+</ol></details>
+<details><summary>Admin Panels (15)</summary><ol style="margin:10px 16px">
+<li><a href="https://accounts.tesla.com/password/forgot" target="_blank">https://accounts.tesla.com/password/forgot</a></li>
+<li><a href="https://developer.tesla.com/dashboard" target="_blank">https://developer.tesla.com/dashboard</a></li>
+<li><a href="https://www.tesla.com/teslaaccount/edit" target="_blank">https://www.tesla.com/teslaaccount/edit</a></li>
+<li><a href="https://ir.tesla.com/_flysystem/s3/sec/000156459021004599/tsla-10k_20201231-gen.pdf" target="_blank">https://ir.tesla.com/_flysystem/s3/sec/000156459021004599/tsla-10k_20201231-gen.pdf</a></li>
+<li><a href="https://developer.tesla.com/en_PR/dashboard" target="_blank">https://developer.tesla.com/en_PR/dashboard</a></li>
+<li><a href="https://ir.tesla.com/_flysystem/s3/sec/000095017023001409/tsla-20221231-gen.pdf" target="_blank">https://ir.tesla.com/_flysystem/s3/sec/000095017023001409/tsla-20221231-gen.pdf</a></li>
+<li><a href="https://workforce.tesla.com/" target="_blank">https://workforce.tesla.com/</a></li>
+<li><a href="https://energylibrary.tesla.com/docs/Public/More/Powerhub/Residential/UserManual/en-us/GUID-93782068-4EC1-4712-B04B-B83D6D0A3ECC.html" target="_blank">https://energylibrary.tesla.com/docs/Public/More/Powerhub/Residential/UserManual/en-us/GUID-93782068-4EC1-4712-B04B-B83D6D0A3ECC.html</a></li>
+<li><a href="https://www.tesla.com/legal/security" target="_blank">https://www.tesla.com/legal/security</a></li>
+<li><a href="https://www.tesla.com/ns_videos/2021-tesla-impact-report.pdf" target="_blank">https://www.tesla.com/ns_videos/2021-tesla-impact-report.pdf</a></li>
+<li><a href="https://service.tesla.com/" target="_blank">https://service.tesla.com/</a></li>
+<li><a href="https://www.tesla.com/legal/additional-resources" target="_blank">https://www.tesla.com/legal/additional-resources</a></li>
+<li><a href="https://www.tesla.com/teslaaccount" target="_blank">https://www.tesla.com/teslaaccount</a></li>
+<li><a href="https://www.tesla.com/blog" target="_blank">https://www.tesla.com/blog</a></li>
+<li><a href="https://ir.tesla.com/_flysystem/s3/sec/000095017021002253/tsla-20210930-gen.pdf" target="_blank">https://ir.tesla.com/_flysystem/s3/sec/000095017021002253/tsla-20210930-gen.pdf</a></li>
+</ol></details>
+<details><summary>Signup Pages (7)</summary><ol style="margin:10px 16px">
+<li><a href="https://www.tesla.com/teslaaccount/edit" target="_blank">https://www.tesla.com/teslaaccount/edit</a></li>
+<li><a href="https://www.tesla.com/en_mo/event/life-at-tesla-tbc" target="_blank">https://www.tesla.com/en_mo/event/life-at-tesla-tbc</a></li>
+<li><a href="https://www.tesla.com/en_mo/event/register-your-interest-modelyl" target="_blank">https://www.tesla.com/en_mo/event/register-your-interest-modelyl</a></li>
+<li><a href="https://service.tesla.com/" target="_blank">https://service.tesla.com/</a></li>
+<li><a href="https://www.tesla.com/teslaaccount" target="_blank">https://www.tesla.com/teslaaccount</a></li>
+<li><a href="https://engage.tesla.com/articles/317-register-official-club-website" target="_blank">https://engage.tesla.com/articles/317-register-official-club-website</a></li>
+<li><a href="https://www.tesla.com/ar_ae/event/register-your-interest-modelyl" target="_blank">https://www.tesla.com/ar_ae/event/register-your-interest-modelyl</a></li>
+</ol></details>
+<details><summary>API Endpoints (10)</summary><ol style="margin:10px 16px">
+<li><a href="https://developer.tesla.com/docs/fleet-api/endpoints/vehicle-commands" target="_blank">https://developer.tesla.com/docs/fleet-api/endpoints/vehicle-commands</a></li>
+<li><a href="https://www.tesla.com/teslaaccount/edit" target="_blank">https://www.tesla.com/teslaaccount/edit</a></li>
+<li><a href="https://developer.tesla.com/docs/fleet-api" target="_blank">https://developer.tesla.com/docs/fleet-api</a></li>
+<li><a href="https://www.tesla.com/inventory/api/v4/files/ffd741b8-bd90-44ef-bfd5-f81f93ba4e1d" target="_blank">https://www.tesla.com/inventory/api/v4/files/ffd741b8-bd90-44ef-bfd5-f81f93ba4e1d</a></li>
+<li><a href="https://energylibrary.tesla.com/docs/Public/More/Powerhub/Residential/UserManual/en-us/GUID-93782068-4EC1-4712-B04B-B83D6D0A3ECC.html" target="_blank">https://energylibrary.tesla.com/docs/Public/More/Powerhub/Residential/UserManual/en-us/GUID-93782068-4EC1-4712-B04B-B83D6D0A3ECC.html</a></li>
+<li><a href="https://www.tesla.com/legal/additional-resources" target="_blank">https://www.tesla.com/legal/additional-resources</a></li>
+<li><a href="https://www.tesla.com/teslaaccount" target="_blank">https://www.tesla.com/teslaaccount</a></li>
+<li><a href="https://developer.tesla.com/docs/fleet-api/authentication/partner-tokens" target="_blank">https://developer.tesla.com/docs/fleet-api/authentication/partner-tokens</a></li>
+<li><a href="https://developer.tesla.com/docs/fleet-api/getting-started/what-is-fleet-api" target="_blank">https://developer.tesla.com/docs/fleet-api/getting-started/what-is-fleet-api</a></li>
+<li><a href="https://www.tesla.com/developer-docs" target="_blank">https://www.tesla.com/developer-docs</a></li>
+</ol></details>
+<details><summary>Development/Testing (2)</summary><ol style="margin:10px 16px">
+<li><a href="https://www.tesla.com/ns_videos/2021-tesla-impact-report.pdf" target="_blank">https://www.tesla.com/ns_videos/2021-tesla-impact-report.pdf</a></li>
+<li><a href="https://www.tesla.com/ownersmanual/model3/en_us/Owners_Manual.pdf" target="_blank">https://www.tesla.com/ownersmanual/model3/en_us/Owners_Manual.pdf</a></li>
+</ol></details>
+<details><summary>File Upload Forms (6)</summary><ol style="margin:10px 16px">
+<li><a href="https://www.tesla.com/teslaaccount/edit" target="_blank">https://www.tesla.com/teslaaccount/edit</a></li>
+<li><a href="https://workforce.tesla.com/" target="_blank">https://workforce.tesla.com/</a></li>
+<li><a href="https://www.tesla.com/legal/additional-resources" target="_blank">https://www.tesla.com/legal/additional-resources</a></li>
+<li><a href="https://www.tesla.com/ns_videos/Tesla-Master-Plan-Part-3.pdf" target="_blank">https://www.tesla.com/ns_videos/Tesla-Master-Plan-Part-3.pdf</a></li>
+<li><a href="https://www.tesla.com/en_th/support/charging/wall-connector/troubleshooting" target="_blank">https://www.tesla.com/en_th/support/charging/wall-connector/troubleshooting</a></li>
+<li><a href="https://www.tesla.com/blog" target="_blank">https://www.tesla.com/blog</a></li>
+</ol></details>
+  </div>
+</div>
+
+<div class="tool-section">
+  <div class="tool-header">
+    <span>Github</span>
+    <span class="status-badge status-completed">completed</span>
+  </div>
+  <div class="tool-content">
+
+
+<div class="stats-grid">
+  <div class="stat-card"><span class="number">0</span><span class="label">Repos Scanned</span></div>
+  <div class="stat-card"><span class="number">0</span><span class="label">Findings</span></div>
+</div>
+
+  </div>
+</div>
+
+<div class="tool-section">
+  <div class="tool-header">
+    <span>Hunter Breach</span>
+    <span class="status-badge status-completed">completed</span>
+  </div>
+  <div class="tool-content">
+
+
+<div class="stats-grid">
+  <div class="stat-card"><span class="number">10</span><span class="label">Emails Found</span></div>
+  <div class="stat-card"><span class="number">0</span><span class="label">With Breaches</span></div>
+</div>
+<h3 style="margin:14px 0 8px">📧 Email Breach Analysis</h3>
+
+<table class="data-table"><tr><th>Email</th><th>Status</th><th>Breaches</th></tr>
+<tr><td>echen@tesla.com</td><td>✅ Clean</td><td>No breaches</td></tr>
+<tr><td>mmatischak@tesla.com</td><td>✅ Clean</td><td>No breaches</td></tr>
+<tr><td>lxi@tesla.com</td><td>✅ Clean</td><td>No breaches</td></tr>
+<tr><td>obaykal@tesla.com</td><td>✅ Clean</td><td>No breaches</td></tr>
+<tr><td>fbailleul@tesla.com</td><td>✅ Clean</td><td>No breaches</td></tr>
+<tr><td>sgroll@tesla.com</td><td>✅ Clean</td><td>No breaches</td></tr>
+<tr><td>jswalus@tesla.com</td><td>✅ Clean</td><td>No breaches</td></tr>
+<tr><td>lvievermans@tesla.com</td><td>✅ Clean</td><td>No breaches</td></tr>
+<tr><td>khee@tesla.com</td><td>✅ Clean</td><td>No breaches</td></tr>
+<tr><td>er@tesla.com</td><td>✅ Clean</td><td>No breaches</td></tr>
+</table>
+  </div>
+</div>
+
+<div class="tool-section">
+  <div class="tool-header">
+    <span>Shodan</span>
+    <span class="status-badge status-completed">completed</span>
+  </div>
+  <div class="tool-content">
+
+
+<h3 style="margin:0 0 12px">🔍 Shodan</h3>
+<table class="data-table">
+  <tr><th>IP</th><th>Org</th><th>ISP</th><th>ASN</th><th>Ports</th></tr>
+  <tr><td>2.18.48.207</td><td>Akamai Technologies</td><td>Akamai International B.V.</td><td>AS33905</td><td>80, 443</td></tr>
+</table>
+
+  </div>
+</div>
+
+<div class="tool-section">
+  <div class="tool-header">
+    <span>Cloud Buckets</span>
+    <span class="status-badge status-completed">completed</span>
+  </div>
+  <div class="tool-content">
+
+
+<div class="stats-grid">
+  <div class="stat-card"><span class="number">0</span><span class="label">Buckets Found</span></div>
+  <div class="stat-card"><span class="number">0</span><span class="label">Public</span></div>
+</div>
+
+  </div>
+</div>
+
+<div class="tool-section">
+  <div class="tool-header">
+    <span>Technologies</span>
+    <span class="status-badge status-completed">completed</span>
+  </div>
+  <div class="tool-content">
+
+<h3 style="margin:0 0 12px">🧩 Technologies</h3>
+<table class="data-table"><tr><th>Category</th><th>Detected</th></tr>
+<tr><td>Server</td><td><span class="tech-pill">Akamaighost</span></td></tr>
+</table>
+<p style="color:#8B949E;margin-top:8px">HTTP Status: 403</p>
+  </div>
+</div>
+
+<div class="tool-section">
+  <div class="tool-header">
+    <span>Security Headers</span>
+    <span class="status-badge status-completed">completed</span>
+  </div>
+  <div class="tool-content">
+
+
+<h3 style="margin:0 0 12px">🔒 Security Headers</h3>
+<div class="stat-card" style="max-width:200px;border-color:#F85149">
+  <span class="number" style="color:#F85149">33%</span>
+  <span class="label">Header Score</span>
+</div>
+<table class="data-table" style="margin-top:14px">
+  <tr><th>Header</th><th>Present</th><th>Value</th></tr>
+
+<tr><td>Strict-Transport-Security</td><td>✅</td><td>max-age=15768000</td></tr>
+<tr><td>Content-Security-Policy</td><td>❌</td><td></td></tr>
+<tr><td>X-Frame-Options</td><td>❌</td><td></td></tr>
+<tr><td>X-Content-Type-Options</td><td>❌</td><td></td></tr>
+<tr><td>Referrer-Policy</td><td>❌</td><td></td></tr>
+<tr><td>Permissions-Policy</td><td>✅</td><td>interest-cohort=()</td></tr>
+</table>
+  </div>
+</div>
+
+<div class="tool-section">
+  <div class="tool-header">
+    <span>Virustotal</span>
+    <span class="status-badge status-completed">completed</span>
+  </div>
+  <div class="tool-content">
+
+
+<h3 style="margin:0 0 12px">🦠 VirusTotal</h3>
+<div class="stat-card" style="max-width:320px;border-color:#3FB950">
+  <span class="number" style="color:#3FB950">CLEAN</span>
+  <span class="label">Malicious:0 | Suspicious:0 | Total:93</span>
+</div>
+<table class="data-table" style="margin-top:14px">
+  <tr><th>Category</th><th>Count</th></tr>
+
+<tr><td>undetected</td><td>30</td></tr>
+<tr><td>harmless</td><td>63</td></tr>
+<tr><td>malicious</td><td>0</td></tr>
+<tr><td>suspicious</td><td>0</td></tr>
+<tr><td>timeout</td><td>0</td></tr>
+<tr><td>confirmed_timeout</td><td>0</td></tr>
+<tr><td>failure</td><td>0</td></tr>
+<tr><td>type_unsupported</td><td>0</td></tr>
+</table>
+  </div>
+</div>
+
+</div>
+<div class="footer">
+  <h3 style="color:#E6EDF3;margin-bottom:14px">📦 Export Options</h3>
+  <a class="dl-btn" href="recon_output.json">⬇ JSON Report</a>
+  <p style="margin-top:18px;color:#8B949E">Passive Reconnaissance Framework v4.0 · Rudra Potghan</p>
+</div>
+</body>
+</html>
